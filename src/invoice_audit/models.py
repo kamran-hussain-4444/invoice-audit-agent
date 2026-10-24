@@ -110,7 +110,7 @@ class SourceDocument:
     test: TestName
     file_path: Path
     display_name: str
-    kind: Literal["pdf", "image", "docx", "xlsx", "email_body"]
+    kind: Literal["pdf", "image", "docx", "xlsx", "email_body", "other"]  # "other" = unsupported, never loaded
     content_bytes: bytes | None = None
     email_context: str | None = None
 

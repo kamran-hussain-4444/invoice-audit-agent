@@ -13,8 +13,10 @@ from pathlib import Path
 import pytest
 
 from invoice_audit.config import load_config
+from invoice_audit.discovery import discover
 from invoice_audit.findings import build_findings
 from invoice_audit.ledger import load_ledger
+from invoice_audit.loaders import LoaderError, load
 from invoice_audit.matching import index_ledger
 from invoice_audit.models import ExtractionRecord, SourceDocument
 from invoice_audit.procedures.cutoff import run_cutoff_testing
@@ -96,10 +98,28 @@ def test_extracted_records_are_all_ok(results):
 EDGE_CASES = {Path(item["file"]).name: item for item in ANSWER_KEY["edge_cases"]}
 
 
+def status_before_extraction(name: str, cfg) -> str | None:
+    """Status decided by discovery/loaders (no AI needed), or None if the file is loadable."""
+    found = discover(DATA / "main_sample", "main")
+    for record in found.skipped:
+        if record.source.display_name == name:
+            return record.status
+    document = next(d for d in found.documents if d.display_name == name)
+    try:
+        load(document, cfg)
+    except LoaderError:
+        return "failed"
+    return None
+
+
 @pytest.mark.parametrize("name", sorted(EDGE_CASES))
 def test_edge_case_status(name):
     item = EDGE_CASES[name]
+    cfg = load_config(EXAMPLE_RUN, base_dir=ROOT)
+    status = status_before_extraction(name, cfg)
     if item["truth"] is None:
-        pytest.skip("Decided by the file loaders (milestone M3), not by extracted data")
-    record = to_record(item, name, tuple(item.get("low_confidence", ())))
-    assert record.status == item["expected_status"]
+        assert status == item["expected_status"]
+    else:
+        assert status is None, "file should load and go to Claude"
+        record = to_record(item, name, tuple(item.get("low_confidence", ())))
+        assert record.status == item["expected_status"]
