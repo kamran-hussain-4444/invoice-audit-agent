@@ -1,0 +1,18 @@
+# Secrets
+.env
+
+# Python / tooling
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Run artefacts (never commit)
+.cache/
+output/
+logs/
+inbox/
+processed/
+data/scale_*/
+*.local.toml
