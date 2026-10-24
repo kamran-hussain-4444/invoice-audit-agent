@@ -1,3 +1,17 @@
 # Store text files with LF so Windows and Ubuntu CI see identical files
 * text=auto eol=lf
 *.ps1 text eol=crlf
+
+# Never touch line endings in binary or byte-exact files (would corrupt them)
+*.pdf binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.tif binary
+*.tiff binary
+*.webp binary
+*.xlsx binary
+*.docx binary
+*.doc binary
+*.msg binary
+*.eml -text

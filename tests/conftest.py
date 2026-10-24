@@ -107,3 +107,25 @@ def make_line(**changes) -> LedgerLine:
 
 def index(*lines: LedgerLine) -> dict[str, list[LedgerLine]]:
     return index_ledger(list(lines))
+
+
+def invoice_from_truth(truth: dict, low_confidence: tuple[str, ...] = ()) -> ExtractedInvoice:
+    """The ExtractedInvoice a perfect reader would return for an answer-key entry."""
+    fields = ["supplier_name", "supplier_vat_number", "addressed_to", "invoice_number", "invoice_date", "currency",
+              "net_amount", "vat_amount", "gross_amount", "description", "delivery_date", "service_period_start",
+              "service_period_end"]  # fmt: skip
+    data = {name: truth.get(name) for name in fields}
+    data.update(
+        document_type=truth.get("document_type", "invoice"),
+        line_items=[],
+        period_basis=truth.get("period_basis", "not_determinable"),
+        period_reasoning="From answer key.",
+        suggested_category=truth.get("true_category", "Administrative expenses"),
+        category_reasoning="From answer key.",
+        multiple_invoices_detected=False,
+        extraction_notes=None,
+        field_confidence={key: ("low" if key in low_confidence else "high") for key in
+                          ["supplier_name", "addressed_to", "invoice_number", "invoice_date", "amounts", "currency",
+                           "description", "service_period"]},
+    )  # fmt: skip
+    return ExtractedInvoice.model_validate(data)

@@ -51,3 +51,7 @@ target-version = "py312"
 [tool.ruff.lint]
 # E/F = pycodestyle + pyflakes, I = import order, UP = modern Python syntax, B = common bugs
 select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.flake8-bugbear]
+# typer declares CLI options as argument defaults; that's its intended style.
+extend-immutable-calls = ["typer.Option", "typer.Argument"]

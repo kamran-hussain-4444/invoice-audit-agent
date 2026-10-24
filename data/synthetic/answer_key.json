@@ -1,0 +1,2212 @@
+{
+  "seed": 42,
+  "company": "Brackenfield Engineering Ltd",
+  "fy_start": "2025-04-01",
+  "fy_end": "2026-03-31",
+  "invoices": [
+    {
+      "invoice_id": "INV-C-001",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_001.docx",
+      "attachment": null,
+      "format": "docx",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Pemberton Steel Stockholders Ltd",
+        "supplier_vat_number": "GB928310475",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "PSS02444",
+        "invoice_date": "2026-03-20",
+        "currency": "GBP",
+        "net_amount": "3318.00",
+        "vat_amount": "663.60",
+        "gross_amount": "3981.60",
+        "description": "Aluminium plate 6082 10mm",
+        "delivery_date": "2026-03-20",
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "delivery_date",
+        "true_category": "Cost of sales"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "P": "pass"
+        },
+        "recorded_in": "current",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-002",
+      "test": "cutoff",
+      "file": "cutoff_sample/scan_002.png",
+      "attachment": null,
+      "format": "png_scan",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Stackwise Software Ltd",
+        "supplier_vat_number": "GB395261840",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "SW-03554",
+        "invoice_date": "2026-03-25",
+        "currency": "GBP",
+        "net_amount": "5400.00",
+        "vat_amount": "1080.00",
+        "gross_amount": "6480.00",
+        "description": "Annual software licence 01/04/2026\u201331/03/2027",
+        "delivery_date": null,
+        "service_period_start": "2026-04-01",
+        "service_period_end": "2027-03-31",
+        "period_basis": "explicit_period",
+        "true_category": "IT & software"
+      },
+      "planted_errors": [
+        "C04"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "P": "exception"
+        },
+        "recorded_in": "current",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-003",
+      "test": "cutoff",
+      "file": "cutoff_sample/email_01.eml",
+      "attachment": "PSS02455.jpg",
+      "format": "email_jpg",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Pemberton Steel Stockholders Ltd",
+        "supplier_vat_number": "GB928310475",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "PSS02455",
+        "invoice_date": "2026-04-08",
+        "currency": "GBP",
+        "net_amount": "2846.40",
+        "vat_amount": "569.28",
+        "gross_amount": "3415.68",
+        "description": "Mild steel bar EN3B 50mm x 6m",
+        "delivery_date": "2026-04-08",
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "delivery_date",
+        "true_category": "Cost of sales"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "P": "pass"
+        },
+        "recorded_in": "post_ye",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-004",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_004.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Lumen Print & Design Ltd",
+        "supplier_vat_number": "GB284716359",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "LPD-06542",
+        "invoice_date": "2026-03-20",
+        "currency": "GBP",
+        "net_amount": "2500.00",
+        "vat_amount": "500.00",
+        "gross_amount": "3000.00",
+        "description": "Trade show sponsorship, Northern Engineering Expo, event 14 May 2026",
+        "delivery_date": null,
+        "service_period_start": "2026-05-14",
+        "service_period_end": "2026-05-14",
+        "period_basis": "explicit_period",
+        "true_category": "Marketing"
+      },
+      "planted_errors": [
+        "C06"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "P": "exception"
+        },
+        "recorded_in": "current",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-005",
+      "test": "cutoff",
+      "file": "cutoff_sample/email_02.eml",
+      "attachment": null,
+      "format": "email_body",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Meridian Business Travel Ltd",
+        "supplier_vat_number": "GB863047215",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "MBT03287",
+        "invoice_date": "2026-03-20",
+        "currency": "GBP",
+        "net_amount": "412.80",
+        "vat_amount": "82.56",
+        "gross_amount": "495.36",
+        "description": "Hotel accommodation, 16\u201318 March 2026",
+        "delivery_date": null,
+        "service_period_start": "2026-03-16",
+        "service_period_end": "2026-03-18",
+        "period_basis": "explicit_period",
+        "true_category": "Travel & subsistence"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "P": "pass"
+        },
+        "recorded_in": "current",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-006",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_006.xlsx",
+      "attachment": null,
+      "format": "xlsx",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Carter & Vale LLP",
+        "supplier_vat_number": "GB517390284",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "CV/26/2240",
+        "invoice_date": "2026-03-03",
+        "currency": "GBP",
+        "net_amount": "2850.00",
+        "vat_amount": "570.00",
+        "gross_amount": "3420.00",
+        "description": "Consultancy services \u2013 February 2026",
+        "delivery_date": null,
+        "service_period_start": "2026-02-01",
+        "service_period_end": "2026-02-28",
+        "period_basis": "explicit_period",
+        "true_category": "Professional fees"
+      },
+      "planted_errors": [
+        "C10"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "n/a",
+          "P": "exception"
+        },
+        "recorded_in": "neither",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-007",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_007.xlsx",
+      "attachment": null,
+      "format": "xlsx",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Greenline Energy Supply Ltd",
+        "supplier_vat_number": "GB742905186",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "GE-0007381",
+        "invoice_date": "2026-03-06",
+        "currency": "GBP",
+        "net_amount": "2087.31",
+        "vat_amount": "417.46",
+        "gross_amount": "2504.77",
+        "description": "Electricity supply 01/02/2026\u201328/02/2026",
+        "delivery_date": null,
+        "service_period_start": "2026-02-01",
+        "service_period_end": "2026-02-28",
+        "period_basis": "explicit_period",
+        "true_category": "Utilities"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "P": "pass"
+        },
+        "recorded_in": "current",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-008",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_008.pdf",
+      "attachment": null,
+      "format": "scanned_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Harbour Office Supplies Ltd",
+        "supplier_vat_number": "GB451927368",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "INV3158",
+        "invoice_date": "2026-03-27",
+        "currency": "GBP",
+        "net_amount": "142.50",
+        "vat_amount": "28.50",
+        "gross_amount": "171.00",
+        "description": "Archive boxes x 50",
+        "delivery_date": "2026-03-27",
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "delivery_date",
+        "true_category": "Administrative expenses"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "P": "pass"
+        },
+        "recorded_in": "current",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-009",
+      "test": "cutoff",
+      "file": "cutoff_sample/scan_009.png",
+      "attachment": null,
+      "format": "png_scan",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Kestrel Insurance Brokers Ltd",
+        "supplier_vat_number": "GB206593871",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "KIB/02099",
+        "invoice_date": "2025-12-18",
+        "currency": "GBP",
+        "net_amount": "3650.00",
+        "vat_amount": "0.00",
+        "gross_amount": "3650.00",
+        "description": "Combined commercial insurance, policy period 01/01/2026\u201331/12/2026",
+        "delivery_date": null,
+        "service_period_start": "2026-01-01",
+        "service_period_end": "2026-12-31",
+        "period_basis": "explicit_period",
+        "true_category": "Insurance"
+      },
+      "planted_errors": [
+        "C07"
+      ],
+      "expected": {
+        "overall": "review",
+        "checks": {
+          "A": "pass",
+          "P": "review"
+        },
+        "recorded_in": "current",
+        "suggested_adjustment": "2750.00"
+      }
+    },
+    {
+      "invoice_id": "INV-C-010",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_010.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Oakridge Property Management Ltd",
+        "supplier_vat_number": "GB630184527",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "OPM001481",
+        "invoice_date": "2026-04-01",
+        "currency": "GBP",
+        "net_amount": "18750.00",
+        "vat_amount": "3750.00",
+        "gross_amount": "22500.00",
+        "description": "Rent, quarter 1 April 2026 to 30 June 2026",
+        "delivery_date": null,
+        "service_period_start": "2026-04-01",
+        "service_period_end": "2026-06-30",
+        "period_basis": "explicit_period",
+        "true_category": "Premises (rent & rates)"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "P": "pass"
+        },
+        "recorded_in": "post_ye",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-011",
+      "test": "cutoff",
+      "file": "cutoff_sample/email_03.eml",
+      "attachment": "FX-3144.pdf",
+      "format": "email_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Fixwell Facilities Ltd",
+        "supplier_vat_number": "GB174582936",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "FX-3144",
+        "invoice_date": "2026-04-08",
+        "currency": "GBP",
+        "net_amount": "2400.00",
+        "vat_amount": "480.00",
+        "gross_amount": "2880.00",
+        "description": "Planned maintenance contract 01/02/2026\u201331/05/2026",
+        "delivery_date": null,
+        "service_period_start": "2026-02-01",
+        "service_period_end": "2026-05-31",
+        "period_basis": "explicit_period",
+        "true_category": "Repairs & maintenance"
+      },
+      "planted_errors": [
+        "C08"
+      ],
+      "expected": {
+        "overall": "review",
+        "checks": {
+          "A": "pass",
+          "P": "review"
+        },
+        "recorded_in": "post_ye",
+        "suggested_adjustment": "1180.00"
+      }
+    },
+    {
+      "invoice_id": "INV-C-012",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_012.docx",
+      "attachment": null,
+      "format": "docx",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Harbour Office Supplies Ltd",
+        "supplier_vat_number": "GB451927368",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "INV3143",
+        "invoice_date": "2026-03-30",
+        "currency": "GBP",
+        "net_amount": "264.30",
+        "vat_amount": "52.86",
+        "gross_amount": "317.16",
+        "description": "A4 copier paper (box of 5 reams) x 10; Desk organisers x 6",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Administrative expenses"
+      },
+      "planted_errors": [
+        "C12"
+      ],
+      "expected": {
+        "overall": "review",
+        "checks": {
+          "A": "pass",
+          "P": "review"
+        },
+        "recorded_in": "current",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-013",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_013.pdf",
+      "attachment": null,
+      "format": "scanned_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Lumen Print & Design Ltd",
+        "supplier_vat_number": "GB284716359",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "LPD-06572",
+        "invoice_date": "2026-04-15",
+        "currency": "GBP",
+        "net_amount": "585.00",
+        "vat_amount": "117.00",
+        "gross_amount": "702.00",
+        "description": "A5 product flyers x 5,000",
+        "delivery_date": "2026-04-15",
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "delivery_date",
+        "true_category": "Marketing"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "P": "pass"
+        },
+        "recorded_in": "post_ye",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-014",
+      "test": "cutoff",
+      "file": "cutoff_sample/photo_014.jpg",
+      "attachment": null,
+      "format": "jpg_photo",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Stackwise Software Ltd",
+        "supplier_vat_number": "GB395261840",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "SW-03563",
+        "invoice_date": "2026-03-31",
+        "currency": "GBP",
+        "net_amount": "950.00",
+        "vat_amount": "190.00",
+        "gross_amount": "1140.00",
+        "description": "IT support retainer \u2013 March 2026",
+        "delivery_date": null,
+        "service_period_start": "2026-03-01",
+        "service_period_end": "2026-03-31",
+        "period_basis": "explicit_period",
+        "true_category": "IT & software"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "P": "pass"
+        },
+        "recorded_in": "current",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-015",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_015.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Fixwell Facilities Ltd",
+        "supplier_vat_number": "GB174582936",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "FX-3162",
+        "invoice_date": "2026-04-03",
+        "currency": "GBP",
+        "net_amount": "1120.00",
+        "vat_amount": "224.00",
+        "gross_amount": "1344.00",
+        "description": "Plant servicing completed March 2026",
+        "delivery_date": null,
+        "service_period_start": "2026-03-01",
+        "service_period_end": "2026-03-31",
+        "period_basis": "explicit_period",
+        "true_category": "Repairs & maintenance"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "P": "pass"
+        },
+        "recorded_in": "current",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-016",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_016.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Oakridge Property Management Ltd",
+        "supplier_vat_number": "GB630184527",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "OPM001444",
+        "invoice_date": "2026-03-25",
+        "currency": "GBP",
+        "net_amount": "6250.00",
+        "vat_amount": "1250.00",
+        "gross_amount": "7500.00",
+        "description": "Rent for April 2026 in advance",
+        "delivery_date": null,
+        "service_period_start": "2026-04-01",
+        "service_period_end": "2026-04-30",
+        "period_basis": "explicit_period",
+        "true_category": "Premises (rent & rates)"
+      },
+      "planted_errors": [
+        "C05"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "P": "exception"
+        },
+        "recorded_in": "current",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-017",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_017.pdf",
+      "attachment": null,
+      "format": "scanned_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Greenline Energy Supply Ltd",
+        "supplier_vat_number": "GB742905186",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "GE-0007357",
+        "invoice_date": "2026-03-12",
+        "currency": "GBP",
+        "net_amount": "2213.75",
+        "vat_amount": "442.75",
+        "gross_amount": "2656.50",
+        "description": "Electricity supply, workshop meter, February 2026",
+        "delivery_date": null,
+        "service_period_start": "2026-02-01",
+        "service_period_end": "2026-02-28",
+        "period_basis": "explicit_period",
+        "true_category": "Utilities"
+      },
+      "planted_errors": [
+        "C11"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "P": "exception"
+        },
+        "recorded_in": "both",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-018",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_018.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Carter & Vale LLP",
+        "supplier_vat_number": "GB517390284",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "CV/26/2208",
+        "invoice_date": "2026-04-10",
+        "currency": "GBP",
+        "net_amount": "3600.00",
+        "vat_amount": "720.00",
+        "gross_amount": "4320.00",
+        "description": "Consultancy services \u2013 March 2026",
+        "delivery_date": null,
+        "service_period_start": "2026-03-01",
+        "service_period_end": "2026-03-31",
+        "period_basis": "explicit_period",
+        "true_category": "Professional fees"
+      },
+      "planted_errors": [
+        "C01"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "P": "exception"
+        },
+        "recorded_in": "post_ye",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-019",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_019.xlsx",
+      "attachment": null,
+      "format": "xlsx",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Carter & Vale LLP",
+        "supplier_vat_number": "GB517390284",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "CV/26/2282",
+        "invoice_date": "2026-05-01",
+        "currency": "GBP",
+        "net_amount": "1450.00",
+        "vat_amount": "290.00",
+        "gross_amount": "1740.00",
+        "description": "Tax advisory \u2013 April 2026",
+        "delivery_date": null,
+        "service_period_start": "2026-04-01",
+        "service_period_end": "2026-04-30",
+        "period_basis": "explicit_period",
+        "true_category": "Professional fees"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "P": "pass"
+        },
+        "recorded_in": "post_ye",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-020",
+      "test": "cutoff",
+      "file": "cutoff_sample/email_04.eml",
+      "attachment": "SW-03583.jpg",
+      "format": "email_jpg",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Stackwise Software Ltd",
+        "supplier_vat_number": "GB395261840",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "SW-03583",
+        "invoice_date": "2026-05-01",
+        "currency": "GBP",
+        "net_amount": "780.00",
+        "vat_amount": "156.00",
+        "gross_amount": "936.00",
+        "description": "Cloud ERP subscription \u2013 May 2026",
+        "delivery_date": null,
+        "service_period_start": "2026-05-01",
+        "service_period_end": "2026-05-31",
+        "period_basis": "explicit_period",
+        "true_category": "IT & software"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "P": "pass"
+        },
+        "recorded_in": "post_ye",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-021",
+      "test": "cutoff",
+      "file": "cutoff_sample/photo_021.jpg",
+      "attachment": null,
+      "format": "jpg_photo",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Carter & Vale LLP",
+        "supplier_vat_number": "GB517390284",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "CV/26/2268",
+        "invoice_date": "2026-03-02",
+        "currency": "GBP",
+        "net_amount": "1950.00",
+        "vat_amount": "390.00",
+        "gross_amount": "2340.00",
+        "description": "Audit preparation support \u2013 February 2026",
+        "delivery_date": null,
+        "service_period_start": "2026-02-01",
+        "service_period_end": "2026-02-28",
+        "period_basis": "explicit_period",
+        "true_category": "Professional fees"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "P": "pass"
+        },
+        "recorded_in": "current",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-022",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_022.pdf",
+      "attachment": null,
+      "format": "scanned_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Greenline Energy Supply Ltd",
+        "supplier_vat_number": "GB742905186",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "GE-0007412",
+        "invoice_date": "2026-05-06",
+        "currency": "GBP",
+        "net_amount": "1964.08",
+        "vat_amount": "392.82",
+        "gross_amount": "2356.90",
+        "description": "Electricity supply, April 2026",
+        "delivery_date": null,
+        "service_period_start": "2026-04-01",
+        "service_period_end": "2026-04-30",
+        "period_basis": "explicit_period",
+        "true_category": "Utilities"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "P": "pass"
+        },
+        "recorded_in": "post_ye",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-023",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_023.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Fixwell Facilities Ltd",
+        "supplier_vat_number": "GB174582936",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "FX-3114",
+        "invoice_date": "2026-04-06",
+        "currency": "GBP",
+        "net_amount": "1385.00",
+        "vat_amount": "277.00",
+        "gross_amount": "1662.00",
+        "description": "Repairs carried out 24\u201326 March 2026, press shop",
+        "delivery_date": null,
+        "service_period_start": "2026-03-24",
+        "service_period_end": "2026-03-26",
+        "period_basis": "explicit_period",
+        "true_category": "Repairs & maintenance"
+      },
+      "planted_errors": [
+        "C03"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "P": "exception"
+        },
+        "recorded_in": "post_ye",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-024",
+      "test": "cutoff",
+      "file": "cutoff_sample/doc_024.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Pemberton Steel Stockholders Ltd",
+        "supplier_vat_number": "GB928310475",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "PSS02438",
+        "invoice_date": "2026-04-02",
+        "currency": "GBP",
+        "net_amount": "4275.60",
+        "vat_amount": "855.12",
+        "gross_amount": "5130.72",
+        "description": "Stainless sheet 304 2mm",
+        "delivery_date": "2026-03-28",
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "delivery_date",
+        "true_category": "Cost of sales"
+      },
+      "planted_errors": [
+        "C02"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "P": "exception"
+        },
+        "recorded_in": "post_ye",
+        "suggested_adjustment": null
+      }
+    },
+    {
+      "invoice_id": "INV-C-025",
+      "test": "cutoff",
+      "file": "cutoff_sample/scan_025.png",
+      "attachment": null,
+      "format": "png_scan",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Harbour Office Supplies Ltd",
+        "supplier_vat_number": "GB451927368",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "INV3134",
+        "invoice_date": "2026-01-05",
+        "currency": "GBP",
+        "net_amount": "1800.00",
+        "vat_amount": "360.00",
+        "gross_amount": "2160.00",
+        "description": "Office cleaning services, Q1 and April 2026",
+        "delivery_date": null,
+        "service_period_start": "2026-01-01",
+        "service_period_end": "2026-04-30",
+        "period_basis": "description_inference",
+        "true_category": "Administrative expenses"
+      },
+      "planted_errors": [
+        "C09"
+      ],
+      "expected": {
+        "overall": "review",
+        "checks": {
+          "A": "pass",
+          "P": "review"
+        },
+        "recorded_in": "current",
+        "suggested_adjustment": "450.00"
+      }
+    },
+    {
+      "invoice_id": "INV-M-001",
+      "test": "main",
+      "file": "main_sample/photo_001.jpg",
+      "attachment": null,
+      "format": "jpg_photo",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Harbour Office Supplies Ltd",
+        "supplier_vat_number": "GB451927368",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "INV3075",
+        "invoice_date": "2025-07-29",
+        "currency": "GBP",
+        "net_amount": "612.35",
+        "vat_amount": "122.47",
+        "gross_amount": "734.82",
+        "description": "Toner cartridges x 4; Archive boxes x 50",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Administrative expenses"
+      },
+      "planted_errors": [
+        "E04"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "exception",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-002",
+      "test": "main",
+      "file": "main_sample/doc_002.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Meridian Business Travel Ltd",
+        "supplier_vat_number": "GB863047215",
+        "addressed_to": "Mr J Brackenfield",
+        "invoice_number": "MBT03228",
+        "invoice_date": "2025-05-23",
+        "currency": "GBP",
+        "net_amount": "369.00",
+        "vat_amount": "73.80",
+        "gross_amount": "442.80",
+        "description": "Hotel accommodation, 2 nights; Flights Manchley to Hamburg, return",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Travel & subsistence"
+      },
+      "planted_errors": [
+        "E10"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "exception",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-003",
+      "test": "main",
+      "file": "main_sample/doc_003.docx",
+      "attachment": null,
+      "format": "docx",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Oakridge Property Management Ltd",
+        "supplier_vat_number": "GB630184527",
+        "addressed_to": "Brackenfeild Engineering Ltd",
+        "invoice_number": "OPM001435",
+        "invoice_date": "2025-08-14",
+        "currency": "GBP",
+        "net_amount": "5143.00",
+        "vat_amount": "1028.60",
+        "gross_amount": "6171.60",
+        "description": "Service charge; Rent, Unit 4 Ferrow Lane",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Premises (rent & rates)"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-004",
+      "test": "main",
+      "file": "main_sample/doc_004.pdf",
+      "attachment": null,
+      "format": "scanned_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Fixwell Facilities Ltd",
+        "supplier_vat_number": "GB174582936",
+        "addressed_to": "Brackenfield Engineering Ltd.",
+        "invoice_number": "FX-3066",
+        "invoice_date": "2025-09-14",
+        "currency": "GBP",
+        "net_amount": "429.00",
+        "vat_amount": "85.80",
+        "gross_amount": "514.80",
+        "description": "Replacement LED fittings, workshop",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Repairs & maintenance"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-005",
+      "test": "main",
+      "file": "main_sample/doc_005.pdf",
+      "attachment": null,
+      "format": "scanned_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Carter & Vale LLP",
+        "supplier_vat_number": "GB517390284",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "CV/25/2157",
+        "invoice_date": "2025-12-27",
+        "currency": "GBP",
+        "net_amount": "2859.02",
+        "vat_amount": "571.80",
+        "gross_amount": "3430.82",
+        "description": "VAT return review",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Professional fees"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-006",
+      "test": "main",
+      "file": "main_sample/doc_006.pdf",
+      "attachment": null,
+      "format": "scanned_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Harbour Office Supplies Ltd",
+        "supplier_vat_number": "GB451927368",
+        "addressed_to": "Calder Mill Catering Ltd",
+        "invoice_number": "INV3099",
+        "invoice_date": "2025-04-04",
+        "currency": "GBP",
+        "net_amount": "837.90",
+        "vat_amount": "167.58",
+        "gross_amount": "1005.48",
+        "description": "Archive boxes x 50; Toner cartridges x 4",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Administrative expenses"
+      },
+      "planted_errors": [
+        "E09"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "exception",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-007",
+      "test": "main",
+      "file": "main_sample/email_01.eml",
+      "attachment": "PSS02393.pdf",
+      "format": "email_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Pemberton Steel Stockholders Ltd",
+        "supplier_vat_number": "GB928310475",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "PSS02393",
+        "invoice_date": "2025-04-01",
+        "currency": "GBP",
+        "net_amount": "5214.47",
+        "vat_amount": "1042.89",
+        "gross_amount": "6257.36",
+        "description": "Aluminium plate 6082 10mm",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Cost of sales"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-008",
+      "test": "main",
+      "file": "main_sample/scan_008.png",
+      "attachment": null,
+      "format": "png_scan",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Lumen Print & Design Ltd",
+        "supplier_vat_number": "GB284716359",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "LPD-06478",
+        "invoice_date": "2025-06-03",
+        "currency": "GBP",
+        "net_amount": "2790.00",
+        "vat_amount": "558.00",
+        "gross_amount": "3348.00",
+        "description": "Exhibition stand hire and brochures",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Marketing"
+      },
+      "planted_errors": [
+        "E11"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "exception"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-009",
+      "test": "main",
+      "file": "main_sample/doc_009.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Meridian Business Travel Ltd",
+        "supplier_vat_number": "GB863047215",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "MBT03272",
+        "invoice_date": "2025-09-05",
+        "currency": "GBP",
+        "net_amount": "670.00",
+        "vat_amount": "134.00",
+        "gross_amount": "804.00",
+        "description": "Return rail travel Halbridge to London; Flights Manchley to Hamburg, return; Hotel accommodation, 2 nights",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Travel & subsistence"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-010",
+      "test": "main",
+      "file": "main_sample/doc_010.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Atlas Machine Tools Ltd",
+        "supplier_vat_number": "GB739164250",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "ATL-6781",
+        "invoice_date": "2025-05-11",
+        "currency": "GBP",
+        "net_amount": "18500.00",
+        "vat_amount": "3700.00",
+        "gross_amount": "22200.00",
+        "description": "New CNC lathe, model TL-300",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Fixed assets (capital)"
+      },
+      "planted_errors": [
+        "E12"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "exception"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-011",
+      "test": "main",
+      "file": "main_sample/doc_011.docx",
+      "attachment": null,
+      "format": "docx",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Harbour Office Supplies Ltd",
+        "supplier_vat_number": "GB451927368",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "INV2231",
+        "invoice_date": "2025-12-17",
+        "currency": "GBP",
+        "net_amount": "565.00",
+        "vat_amount": "113.00",
+        "gross_amount": "678.00",
+        "description": "A4 copier paper (box of 5 reams) x 10",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Administrative expenses"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-012",
+      "test": "main",
+      "file": "main_sample/doc_012.pdf",
+      "attachment": null,
+      "format": "scanned_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Fixwell Facilities Ltd",
+        "supplier_vat_number": "GB174582936",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "FX-3099",
+        "invoice_date": "2026-03-04",
+        "currency": "GBP",
+        "net_amount": "2146.22",
+        "vat_amount": "429.24",
+        "gross_amount": "2575.46",
+        "description": "Roof leak repair, bay 2; Boiler annual service",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Repairs & maintenance"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-013",
+      "test": "main",
+      "file": "main_sample/doc_013.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Pemberton Steel Stockholders Ltd",
+        "supplier_vat_number": "GB928310475",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "PSS02386",
+        "invoice_date": "2025-07-26",
+        "currency": "GBP",
+        "net_amount": "7832.00",
+        "vat_amount": "1566.40",
+        "gross_amount": "9398.40",
+        "description": "Stainless sheet 304 2mm",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Cost of sales"
+      },
+      "planted_errors": [
+        "E15"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "n/a",
+          "D": "n/a",
+          "E": "n/a",
+          "C": "n/a"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-014",
+      "test": "main",
+      "file": "main_sample/doc_014.pdf",
+      "attachment": null,
+      "format": "scanned_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Lumen Print & Design Ltd",
+        "supplier_vat_number": "GB284716359",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "LPD-06512",
+        "invoice_date": "2025-08-29",
+        "currency": "GBP",
+        "net_amount": "2030.00",
+        "vat_amount": "406.00",
+        "gross_amount": "2436.00",
+        "description": "Exhibition graphics panels",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Marketing"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-015",
+      "test": "main",
+      "file": "main_sample/doc_015.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Stackwise Software Ltd",
+        "supplier_vat_number": "GB395261840",
+        "addressed_to": "BRACKENFIELD ENGINEERING LIMITED",
+        "invoice_number": "SW-03506",
+        "invoice_date": "2025-12-30",
+        "currency": "GBP",
+        "net_amount": "2155.00",
+        "vat_amount": "431.00",
+        "gross_amount": "2586.00",
+        "description": "Endpoint security licences x 30; Laptop docking stations x 4",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "IT & software"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-016",
+      "test": "main",
+      "file": "main_sample/photo_016.jpg",
+      "attachment": null,
+      "format": "jpg_photo",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Summit Cloud Inc.",
+        "supplier_vat_number": "US 84-2917365",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "SC-005674",
+        "invoice_date": "2025-07-22",
+        "currency": "USD",
+        "net_amount": "1250.00",
+        "vat_amount": "0.00",
+        "gross_amount": "1250.00",
+        "description": "Cloud hosting, standard plan",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "IT & software"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-017",
+      "test": "main",
+      "file": "main_sample/email_02.eml",
+      "attachment": "ATL-6792.jpg",
+      "format": "email_jpg",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Atlas Machine Tools Ltd",
+        "supplier_vat_number": "GB739164250",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "ATL-6792",
+        "invoice_date": "2025-06-22",
+        "currency": "GBP",
+        "net_amount": "6890.00",
+        "vat_amount": "1378.00",
+        "gross_amount": "8268.00",
+        "description": "Pillar drill, floor standing",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Fixed assets (capital)"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-018",
+      "test": "main",
+      "file": "main_sample/doc_018.pdf",
+      "attachment": null,
+      "format": "scanned_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Carter & Vale LLP",
+        "supplier_vat_number": "GB517390284",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "CV/25/2139",
+        "invoice_date": "2025-08-29",
+        "currency": "GBP",
+        "net_amount": "1650.00",
+        "vat_amount": "330.00",
+        "gross_amount": "1980.00",
+        "description": "Legal fees: review of new lease, Unit 4 Ferrow Lane",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Professional fees"
+      },
+      "planted_errors": [
+        "E13"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "exception"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-019",
+      "test": "main",
+      "file": "main_sample/doc_019.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Stackwise Software Ltd",
+        "supplier_vat_number": "GB395261840",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "SW-03545",
+        "invoice_date": "2025-12-28",
+        "currency": "GBP",
+        "net_amount": "154.63",
+        "vat_amount": "30.93",
+        "gross_amount": "185.56",
+        "description": "Cloud ERP subscription (25 users)",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "IT & software"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-020",
+      "test": "main",
+      "file": "main_sample/scan_020.png",
+      "attachment": null,
+      "format": "png_scan",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Bauer Komponenten GmbH",
+        "supplier_vat_number": "DE318274695",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "RE-2025-7307",
+        "invoice_date": "2025-06-18",
+        "currency": "EUR",
+        "net_amount": "2160.00",
+        "vat_amount": "0.00",
+        "gross_amount": "2160.00",
+        "description": "Bearing housing BG-75 x 120",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Cost of sales"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-021",
+      "test": "main",
+      "file": "main_sample/photo_021.jpg",
+      "attachment": null,
+      "format": "jpg_photo",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Carter & Vale LLP",
+        "supplier_vat_number": "GB517390284",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "CV/25/2175",
+        "invoice_date": "2025-09-07",
+        "currency": "GBP",
+        "net_amount": "3200.00",
+        "vat_amount": "640.00",
+        "gross_amount": "3840.00",
+        "description": "Recruitment fee: CNC machinist placement",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Professional fees"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-022",
+      "test": "main",
+      "file": "main_sample/doc_022.docx",
+      "attachment": null,
+      "format": "docx",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Greenline Energy Supply Ltd",
+        "supplier_vat_number": "GB742905186",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "GE-0007331",
+        "invoice_date": "2026-02-11",
+        "currency": "GBP",
+        "net_amount": "2081.91",
+        "vat_amount": "416.38",
+        "gross_amount": "2498.29",
+        "description": "Electricity supply, workshop meter",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Utilities"
+      },
+      "planted_errors": [
+        "E14"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "exception"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-023",
+      "test": "main",
+      "file": "main_sample/doc_023.docx",
+      "attachment": null,
+      "format": "docx",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Meridian Business Travel Ltd",
+        "supplier_vat_number": "GB863047215",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "MBT03224",
+        "invoice_date": "2026-05-12",
+        "currency": "GBP",
+        "net_amount": "486.20",
+        "vat_amount": "97.24",
+        "gross_amount": "583.44",
+        "description": "Flights Manchley to Hamburg, return",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Travel & subsistence"
+      },
+      "planted_errors": [
+        "E06"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "D": "exception",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-024",
+      "test": "main",
+      "file": "main_sample/doc_024.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Oakridge Property Management Ltd",
+        "supplier_vat_number": "GB630184527",
+        "addressed_to": "Brackenfield Holdings Ltd",
+        "invoice_number": "OPM001411",
+        "invoice_date": "2026-02-03",
+        "currency": "GBP",
+        "net_amount": "4217.92",
+        "vat_amount": "843.58",
+        "gross_amount": "5061.50",
+        "description": "Service charge; Rent, Unit 4 Ferrow Lane",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Premises (rent & rates)"
+      },
+      "planted_errors": [
+        "E08"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "exception",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-025",
+      "test": "main",
+      "file": "main_sample/doc_025.xlsx",
+      "attachment": null,
+      "format": "xlsx",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Kestrel Insurance Brokers Ltd",
+        "supplier_vat_number": "GB206593871",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "KIB/02074",
+        "invoice_date": "2026-02-16",
+        "currency": "GBP",
+        "net_amount": "2510.55",
+        "vat_amount": "0.00",
+        "gross_amount": "2510.55",
+        "description": "Combined commercial insurance premium; Engineering inspection cover",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Insurance"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-026",
+      "test": "main",
+      "file": "main_sample/doc_026.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Stackwise Software Ltd",
+        "supplier_vat_number": "GB395261840",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "SW-03489",
+        "invoice_date": "2025-05-18",
+        "currency": "GBP",
+        "net_amount": "4850.00",
+        "vat_amount": "970.00",
+        "gross_amount": "5820.00",
+        "description": "Cloud ERP subscription (25 users), annual",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "IT & software"
+      },
+      "planted_errors": [
+        "E03"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "exception",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-027",
+      "test": "main",
+      "file": "main_sample/doc_027.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Pemberton Steel Stockholders Ltd",
+        "supplier_vat_number": "GB928310475",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "PSS02369",
+        "invoice_date": "2026-01-28",
+        "currency": "GBP",
+        "net_amount": "1243.50",
+        "vat_amount": "248.70",
+        "gross_amount": "1492.20",
+        "description": "Mild steel bar EN3B 50mm x 6m",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Cost of sales"
+      },
+      "planted_errors": [
+        "E01"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "exception",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-028",
+      "test": "main",
+      "file": "main_sample/email_03.eml",
+      "attachment": "GE-0007351.pdf",
+      "format": "email_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Greenline Energy Supply Ltd",
+        "supplier_vat_number": "GB742905186",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "GE-0007351",
+        "invoice_date": "2025-09-22",
+        "currency": "GBP",
+        "net_amount": "742.18",
+        "vat_amount": "148.44",
+        "gross_amount": "890.62",
+        "description": "Gas supply, offices",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Utilities"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-029",
+      "test": "main",
+      "file": "main_sample/doc_029.xlsx",
+      "attachment": null,
+      "format": "xlsx",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Harbour Office Supplies Ltd",
+        "supplier_vat_number": "GB451927368",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "INV3105",
+        "invoice_date": "2026-03-31",
+        "currency": "GBP",
+        "net_amount": "274.90",
+        "vat_amount": "54.98",
+        "gross_amount": "329.88",
+        "description": "Toner cartridges x 4",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Administrative expenses"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-030",
+      "test": "main",
+      "file": "main_sample/doc_030.xlsx",
+      "attachment": null,
+      "format": "xlsx",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Meridian Business Travel Ltd",
+        "supplier_vat_number": "GB863047215",
+        "addressed_to": "Brackenfield Precision",
+        "invoice_number": "MBT03233",
+        "invoice_date": "2025-08-16",
+        "currency": "GBP",
+        "net_amount": "315.00",
+        "vat_amount": "63.00",
+        "gross_amount": "378.00",
+        "description": "Flights Manchley to Hamburg, return; Hotel accommodation, 2 nights; Return rail travel Halbridge to London",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Travel & subsistence"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-031",
+      "test": "main",
+      "file": "main_sample/photo_031.jpg",
+      "attachment": null,
+      "format": "jpg_photo",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Fixwell Facilities Ltd",
+        "supplier_vat_number": "GB174582936",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "FX-3059",
+        "invoice_date": "2025-04-17",
+        "currency": "GBP",
+        "net_amount": "845.00",
+        "vat_amount": "169.00",
+        "gross_amount": "1014.00",
+        "description": "Repair to roller shutter door",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Repairs & maintenance"
+      },
+      "planted_errors": [
+        "E02"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "exception",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-032",
+      "test": "main",
+      "file": "main_sample/email_04.eml",
+      "attachment": "GE-0007291.pdf",
+      "format": "email_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Greenline Energy Supply Ltd",
+        "supplier_vat_number": "GB742905186",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "GE-0007291",
+        "invoice_date": "2025-03-31",
+        "currency": "GBP",
+        "net_amount": "1876.40",
+        "vat_amount": "375.28",
+        "gross_amount": "2251.68",
+        "description": "Electricity supply, workshop meter",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Utilities"
+      },
+      "planted_errors": [
+        "E07"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "D": "exception",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-033",
+      "test": "main",
+      "file": "main_sample/email_01.eml",
+      "attachment": "PSS02409.pdf",
+      "format": "email_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Pemberton Steel Stockholders Ltd",
+        "supplier_vat_number": "GB928310475",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "PSS02409",
+        "invoice_date": "2025-08-13",
+        "currency": "GBP",
+        "net_amount": "9461.23",
+        "vat_amount": "1892.25",
+        "gross_amount": "11353.48",
+        "description": "Mild steel bar EN3B 50mm x 6m; Aluminium plate 6082 10mm; Stainless sheet 304 2mm",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Cost of sales"
+      },
+      "planted_errors": [],
+      "expected": {
+        "overall": "pass",
+        "checks": {
+          "A": "pass",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-034",
+      "test": "main",
+      "file": "main_sample/doc_034.pdf",
+      "attachment": null,
+      "format": "digital_pdf",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Carter & Vale LLP",
+        "supplier_vat_number": "GB517390284",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "CV/25/2122",
+        "invoice_date": "2025-02-15",
+        "currency": "GBP",
+        "net_amount": "2400.00",
+        "vat_amount": "480.00",
+        "gross_amount": "2880.00",
+        "description": "Year-end accounts preparation",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Professional fees"
+      },
+      "planted_errors": [
+        "E05"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "pass",
+          "D": "exception",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    },
+    {
+      "invoice_id": "INV-M-035",
+      "test": "main",
+      "file": "main_sample/scan_035.png",
+      "attachment": null,
+      "format": "png_scan",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Bauer Komponenten GmbH",
+        "supplier_vat_number": "DE318274695",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "RE-2025-7270",
+        "invoice_date": "2025-10-12",
+        "currency": "EUR",
+        "net_amount": "3200.00",
+        "vat_amount": "0.00",
+        "gross_amount": "3200.00",
+        "description": "Hydraulic coupling HK-220 x 40",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Cost of sales"
+      },
+      "planted_errors": [
+        "E16"
+      ],
+      "expected": {
+        "overall": "exception",
+        "checks": {
+          "A": "exception",
+          "D": "pass",
+          "E": "pass",
+          "C": "pass"
+        }
+      }
+    }
+  ],
+  "edge_cases": [
+    {
+      "file": "main_sample/corrupt_file.pdf",
+      "expected_status": "failed",
+      "truth": null
+    },
+    {
+      "file": "main_sample/supplier_statement.pdf",
+      "expected_status": "excluded",
+      "truth": {
+        "document_type": "statement",
+        "supplier_name": "Pemberton Steel Stockholders Ltd",
+        "addressed_to": "Brackenfield Engineering Ltd"
+      }
+    },
+    {
+      "file": "main_sample/blurry_receipt.jpg",
+      "expected_status": "needs_review",
+      "truth": {
+        "document_type": "invoice",
+        "supplier_name": "Harbour Office Supplies Ltd",
+        "supplier_vat_number": "GB451927368",
+        "addressed_to": "Brackenfield Engineering Ltd",
+        "invoice_number": "INV3190",
+        "invoice_date": "2025-09-17",
+        "currency": "GBP",
+        "net_amount": "170.40",
+        "vat_amount": "34.08",
+        "gross_amount": "204.48",
+        "description": "Desk organisers x 6; Toner cartridges x 2",
+        "delivery_date": null,
+        "service_period_start": null,
+        "service_period_end": null,
+        "period_basis": "not_determinable",
+        "true_category": "Administrative expenses"
+      },
+      "low_confidence": [
+        "invoice_number",
+        "invoice_date",
+        "amounts"
+      ]
+    },
+    {
+      "file": "main_sample/old_format.doc",
+      "expected_status": "excluded",
+      "truth": null
+    }
+  ]
+}
