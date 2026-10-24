@@ -1,0 +1,60 @@
+# Run settings for the synthetic engagement (fictional company).
+# Paths are relative to the project folder (where you run `uv run audit ...`).
+
+[engagement]
+company_name    = "Brackenfield Engineering Ltd"
+company_aliases = ["Brackenfield Engineering Limited", "Brackenfield Precision"]   # trading names etc.
+group_entities  = ["Brackenfield Holdings Ltd"]     # known related entities → clearer exception text
+fy_start = 2025-04-01
+fy_end   = 2026-03-31
+
+[tests]
+run = ["main", "cutoff"]          # any subset of "main", "cutoff"
+
+[inputs]
+main_folder    = "data/synthetic/main_sample"      # required if "main" in run
+cutoff_folder  = "data/synthetic/cutoff_sample"    # required if "cutoff" in run
+current_ledger = "data/synthetic/ledger_fy2026.xlsx"   # required (both tests)
+post_ye_ledger = "data/synthetic/ledger_post_ye.xlsx"  # required if "cutoff" in run
+ledger_type    = "purchase_ledger"   # "purchase_ledger" → compare NET ; "ap_listing" → compare GROSS
+ledger_sheet   = ""                  # optional sheet name for xlsx; default first sheet. CSV ignored.
+
+[ledger.columns]                     # ledger header → field. Missing optional columns are fine.
+posting_date    = "Posting Date"     # required
+supplier        = "Supplier"         # required
+invoice_number  = "Invoice No"       # required
+description     = "Description"      # optional
+nominal_code    = "Nominal Code"     # required
+nominal_account = "Nominal Account"  # optional
+net             = "Net"              # required if ledger_type = purchase_ledger
+vat             = "VAT"              # optional
+gross           = "Gross"            # required if ledger_type = ap_listing
+currency        = "Currency"         # optional (blank/missing = GBP)
+original_amount = "Original Amount"  # optional; amount in original currency on the same basis (net/gross)
+
+[output]
+folder = "output"
+
+[ai]
+model           = "claude-sonnet-5-5"
+effort          = "medium"           # low | medium | high
+mode            = "auto"             # auto | live | batch
+batch_threshold = 50                 # auto → batch when uncached docs > this
+max_workers     = 8                  # live mode parallelism
+cache_path      = ".cache/extractions.sqlite"
+max_pdf_pages   = 20                 # more → Needs review ("split manually")
+image_max_edge  = 1568               # px, long edge after resize
+
+[ai.pricing]                         # USD per million tokens; update if prices change
+input       = 2.00
+output      = 10.00
+cache_read  = 0.20
+batch_discount = 0.50
+
+[matching]
+value_tolerance        = 0.00        # exact to the penny
+addressee_pass_score   = 92          # rapidfuzz token_sort_ratio after normalisation
+addressee_review_score = 85          # between review and pass → Review; below → Exception
+
+[categories]
+file = "config/categories.toml"

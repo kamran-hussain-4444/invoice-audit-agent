@@ -1,0 +1,58 @@
+# Expense categories used for the classification test (Test 1, column C).
+# Claude must pick one of these names for each invoice; the ledger's nominal code is mapped to a category here.
+# Each nominal code may appear in at most one category.
+
+[[category]]
+name = "Cost of sales"
+nominal_codes = ["5000", "5010"]
+hint = "Raw materials, components and subcontract work used directly in production."
+
+[[category]]
+name = "Marketing"
+nominal_codes = ["6100"]
+hint = "Advertising, trade shows, exhibitions, brochures, sponsorship, digital ads, PR."
+
+[[category]]
+name = "Professional fees"
+nominal_codes = ["6200"]
+hint = "Legal, accountancy, consultancy, recruitment fees."
+
+[[category]]
+name = "Premises (rent & rates)"
+nominal_codes = ["6300"]
+hint = "Rent, service charges, business rates."
+
+[[category]]
+name = "Utilities"
+nominal_codes = ["6400"]
+hint = "Electricity, gas, water, waste."
+
+[[category]]
+name = "IT & software"
+nominal_codes = ["6500"]
+hint = "Software subscriptions and licences, IT support, hosting, small IT equipment."
+
+[[category]]
+name = "Travel & subsistence"
+nominal_codes = ["6600"]
+hint = "Travel, hotels, subsistence."
+
+[[category]]
+name = "Repairs & maintenance"
+nominal_codes = ["6700"]
+hint = "Repairs and servicing of existing assets and premises. Not new assets."
+
+[[category]]
+name = "Insurance"
+nominal_codes = ["6900"]
+hint = "Insurance premiums."
+
+[[category]]
+name = "Administrative expenses"
+nominal_codes = ["6800"]
+hint = "Stationery, postage, office supplies, subscriptions, cleaning, sundry admin."
+
+[[category]]
+name = "Fixed assets (capital)"
+nominal_codes = ["0030", "0040"]
+hint = "Purchase of new plant, machinery, vehicles or equipment with lasting use (capital expenditure)."
