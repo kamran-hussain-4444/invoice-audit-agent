@@ -76,7 +76,8 @@ Then add **Create folder** twice (folder `%ProjectDir%\inbox`, names `main` and 
     - **Display message**: Title `Invoice audit failed`, Message
       `The run stopped with an error. Details:%PowershellOutput%`
     - **Else** (add the **Else** action), then steps 16–19 go inside the Else.
-16. **Parse text**: Text to parse `%PowershellOutput%`, Text to find `(?<=WORKPAPER: ).+`,
+16. **Parse text**: Text to parse `%PowershellOutput%`, Text to find `(?<=WORKPAPER: )[^\r\n]+` (stops at the end
+    of the line; `.+` would also grab Windows' hidden line-ending character and Excel couldn't find the file),
     "Is regular expression" **on**. Produced variable `WorkpaperPath` (rename from `Match`).
 17. **Run application**: Application path `%WorkpaperPath%`. (Windows opens .xlsx files in Excel.)
 18. **Read text from file**: File path `%ProjectDir%\output\latest_run.json`, Encoding `UTF-8`.

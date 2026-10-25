@@ -24,7 +24,7 @@ LOOP WHILE (1) = (1)
         Display.ShowMessageDialog.ShowMessage Title: $'''Invoice audit failed''' Message: $'''The run stopped with an error. Details:
 %PowershellOutput%''' Icon: Display.Icon.ErrorIcon Buttons: Display.Buttons.OK DefaultButton: Display.DefaultButton.Button1 IsTopMost: True ButtonPressed=> ButtonPressed
     ELSE
-        Text.ParseText.RegexParseForFirstOccurrence Text: PowershellOutput TextToFind: $'''(?<=WORKPAPER: ).+''' StartingPosition: 0 IgnoreCase: False OccurrencePosition=> Position Match=> WorkpaperPath
+        Text.ParseText.RegexParseForFirstOccurrence Text: PowershellOutput TextToFind: $'''(?<=WORKPAPER: )[^\\r\\n]+''' StartingPosition: 0 IgnoreCase: False OccurrencePosition=> Position Match=> WorkpaperPath
         System.RunApplication.RunApplication ApplicationPath: WorkpaperPath WindowStyle: System.ProcessWindowStyle.Maximized ProcessId=> AppProcessId
         File.ReadTextFromFile.ReadText File: $'''%ProjectDir%\\output\\latest_run.json''' Encoding: File.TextFileEncoding.UTF8 Content=> LatestRunJson
         Variables.ConvertJsonToCustomObject Json: LatestRunJson CustomObject=> LatestRun
