@@ -30,6 +30,8 @@ def test_counts_and_unique_numbers(scaled):
     numbers = [i["truth"]["invoice_number"] for i in key["invoices"]]
     assert len(numbers) == len(set(numbers))
     assert all((out / i["file"]).is_file() for i in key["invoices"])
+    for item in key["invoices"]:  # only emails have an attachment name
+        assert (item["attachment"] is not None) == item["format"].startswith("email_"), item
     assert (out / "run.toml").is_file()
 
 

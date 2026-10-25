@@ -46,6 +46,7 @@ Run it:  uv run audit run --config {out}/run.toml --dry-run
 
 def _clone(template: InvoiceSpec, rng: random.Random, scenario: Scenario) -> InvoiceSpec:
     spec = copy.deepcopy(template)
+    spec.format, spec.file, spec.attachment = "", "", None  # assigned afresh for the copy
     spec.invoice_number = scenario.numbering.number(spec.supplier, spec.invoice_date)
     if template.ledger_number is not None:  # the "inv 2231" vs "INV2231" control: keep the spacing difference
         spec.ledger_number = spec.invoice_number.lower().replace("inv", "inv ", 1)
