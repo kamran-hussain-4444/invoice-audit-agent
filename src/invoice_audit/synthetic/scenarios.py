@@ -381,14 +381,18 @@ EXTENSIONS = {"digital_pdf": "pdf", "scanned_pdf": "pdf", "jpg_photo": "jpg", "p
               "xlsx": "xlsx"}  # fmt: skip
 
 
-def _assign_files(specs: list[InvoiceSpec], formats: list[str], folder: str, prefix: str, rng: random.Random) -> None:
+def _assign_files(specs: list[InvoiceSpec], formats: list[str], folder: str, prefix: str, rng: random.Random,
+                  first_number: int, emails_before: int) -> None:  # fmt: skip
+    """File names are unique across both folders (main doc_001.., cut-off doc_101..), so a name on the
+    workpaper always points to exactly one file."""
     rng.shuffle(specs)
     formats = list(formats)
     rng.shuffle(formats)
-    email_count = 0
+    email_count = emails_before
     pair_file = None
-    for position, (spec, fmt) in enumerate(zip(specs, formats, strict=True), start=1):
-        spec.invoice_id = f"INV-{prefix}-{position:03d}"
+    for index, (spec, fmt) in enumerate(zip(specs, formats, strict=True), start=1):
+        position = first_number + index - 1
+        spec.invoice_id = f"INV-{prefix}-{index:03d}"
         spec.layout = rng.randint(0, 3)
         if fmt == "email_pair":
             if pair_file is None:
@@ -429,8 +433,8 @@ def build_scenario(seed: int) -> Scenario:
         if spec.recorded_in in ("current", "both") and spec.posting_date is None:
             spec.posting_date = _posting(rng, spec.invoice_date)
     # C11: the same invoice number in both ledgers is the planted error, so nothing else to change.
-    _assign_files(main, MAIN_FORMATS, "main_sample", "M", rng)
-    _assign_files(cutoff, CUTOFF_FORMATS, "cutoff_sample", "C", rng)
+    _assign_files(main, MAIN_FORMATS, "main_sample", "M", rng, first_number=1, emails_before=0)
+    _assign_files(cutoff, CUTOFF_FORMATS, "cutoff_sample", "C", rng, first_number=101, emails_before=4)
     blurry.invoice_id, blurry.format, blurry.file, blurry.layout = (
         "EDGE-BLURRY",
         "jpg_photo",

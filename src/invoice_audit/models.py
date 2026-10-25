@@ -273,6 +273,34 @@ class CutoffTestRow:
 
 
 @dataclass
+class RunStats:
+    """How the run went: shown on the Summary tab and in the console."""
+
+    files_found: int = 0
+    documents: int = 0
+    cache_hits: int = 0
+    live_calls: int = 0
+    batch_calls: int = 0
+    tokens: TokenUsage = field(default_factory=TokenUsage)
+    cost_usd: Decimal = Decimal("0")
+    duration_seconds: float = 0.0
+
+    @property
+    def mode(self) -> str:
+        if self.live_calls and self.batch_calls:
+            return "mixed"
+        if self.batch_calls:
+            return "batch"
+        if self.live_calls:
+            return "live"
+        return "cache only"
+
+    @property
+    def docs_per_minute(self) -> float:
+        return self.documents / (self.duration_seconds / 60) if self.duration_seconds else 0.0
+
+
+@dataclass
 class Finding:
     """One row on the Exceptions tab."""
 
