@@ -1,0 +1,33 @@
+SET ProjectDir TO $'''C:\\Users\\mistr\\Projects\\invoice-audit-agent'''
+SET InboxMain TO $'''%ProjectDir%\\inbox\\main'''
+SET InboxCutoff TO $'''%ProjectDir%\\inbox\\cutoff'''
+SET RunConfig TO $'''%ProjectDir%\\runs\\pad_run.toml'''
+SET LastCount TO 0
+Folder.Create FolderPath: $'''%ProjectDir%\\inbox''' FolderName: $'''main''' Folder=> NewFolder
+Folder.Create FolderPath: $'''%ProjectDir%\\inbox''' FolderName: $'''cutoff''' Folder=> NewFolder
+LOOP WHILE (1) = (1)
+    Folder.GetFiles Folder: InboxMain FileFilter: $'''*''' IncludeSubfolders: True FailOnAccessDenied: False SortBy1: Folder.SortBy.NoSort SortDescending1: False SortBy2: Folder.SortBy.NoSort SortDescending2: False SortBy3: Folder.SortBy.NoSort SortDescending3: False Files=> MainFiles
+    Folder.GetFiles Folder: InboxCutoff FileFilter: $'''*''' IncludeSubfolders: True FailOnAccessDenied: False SortBy1: Folder.SortBy.NoSort SortDescending1: False SortBy2: Folder.SortBy.NoSort SortDescending2: False SortBy3: Folder.SortBy.NoSort SortDescending3: False Files=> CutoffFiles
+    SET Total TO MainFiles.Count + CutoffFiles.Count
+    IF Total = 0 THEN
+        WAIT 15
+        NEXT LOOP
+    END
+    IF Total <> LastCount THEN
+        SET LastCount TO Total
+        WAIT 15
+        NEXT LOOP
+    END
+    Scripting.RunPowershellScript.RunPowershellScript Script: $'''powershell -NoProfile -ExecutionPolicy Bypass -File \"%ProjectDir%\\scripts\\run_audit.ps1\" -Config \"%RunConfig%\" -ArchiveInbox''' ScriptOutput=> PowershellOutput ScriptError=> ScriptError
+    SET LastCount TO 0
+    IF Contains(PowershellOutput, $'''EXITCODE: 1''', False) THEN
+        Display.ShowMessageDialog.ShowMessage Title: $'''Invoice audit failed''' Message: $'''The run stopped with an error. Details:
+%PowershellOutput%''' Icon: Display.Icon.ErrorIcon Buttons: Display.Buttons.OK DefaultButton: Display.DefaultButton.Button1 IsTopMost: True ButtonPressed=> ButtonPressed
+    ELSE
+        Text.ParseText.RegexParseForFirstOccurrence Text: PowershellOutput TextToFind: $'''(?<=WORKPAPER: ).+''' StartingPosition: 0 IgnoreCase: False OccurrencePosition=> Position Match=> WorkpaperPath
+        System.RunApplication.RunApplication ApplicationPath: WorkpaperPath WindowStyle: System.ProcessWindowStyle.Maximized ProcessId=> AppProcessId
+        File.ReadTextFromFile.ReadText File: $'''%ProjectDir%\\output\\latest_run.json''' Encoding: File.TextFileEncoding.UTF8 Content=> LatestRunJson
+        Variables.ConvertJsonToCustomObject Json: LatestRunJson CustomObject=> LatestRun
+        Display.ShowMessageDialog.ShowMessageWithTimeout Title: $'''Invoice audit complete''' Message: $'''%LatestRun['counts']['exceptions']% exceptions and %LatestRun['counts']['reviews']% review items. See the Summary tab.''' Icon: Display.Icon.Information Buttons: Display.Buttons.OK DefaultButton: Display.DefaultButton.Button1 IsTopMost: True Timeout: 20 ButtonPressed=> ButtonPressed
+    END
+END

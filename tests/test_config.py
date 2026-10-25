@@ -124,6 +124,25 @@ def test_nominal_code_in_two_categories_rejected(tmp_path):
         load_categories(path)
 
 
+def test_power_automate_settings_files(tmp_path):
+    saved = load_config(ROOT / "runs" / "pad_run.toml", base_dir=ROOT, check_files=False)
+    assert saved.inputs.main_folder == ROOT / "inbox" / "main"
+    # What the PAD flow writes after "Enter new settings", with real Windows paths (backslashes).
+    text = (ROOT / "runs" / "pad_template.toml").read_text(encoding="utf-8")
+    for placeholder, value in {
+        "{{company_name}}": "Example Client Ltd",
+        "{{fy_start}}": "2025-01-01",
+        "{{fy_end}}": "2025-12-31",
+        "{{current_ledger}}": r"C:\Users\someone\Ledgers\current.xlsx",
+        "{{post_ye_ledger}}": r"C:\Users\someone\Ledgers\post_ye.xlsx",
+    }.items():
+        text = text.replace(placeholder, value)
+    cfg = load_config(write_run(tmp_path, text), base_dir=ROOT, check_files=False)
+    # The backslashes survive as written (on Linux "C:\..." isn't absolute, so only compare the ending).
+    assert str(cfg.inputs.current_ledger).endswith(r"C:\Users\someone\Ledgers\current.xlsx")
+    assert cfg.engagement.fy_end == date(2025, 12, 31)
+
+
 @pytest.mark.parametrize(("raw", "expected"), [("30", "0030"), (" 6800 ", "6800"), ("6800.0", "6800"), ("A1", "A1")])
 def test_normalise_nominal_code(raw, expected):
     assert normalise_nominal_code(raw) == expected

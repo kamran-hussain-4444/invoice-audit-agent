@@ -1,0 +1,25 @@
+# Template used by the Power Automate flow's "Enter new settings" option.
+# The flow replaces each {{placeholder}} and writes the result to runs/pad_run.toml.
+
+[engagement]
+company_name    = "{{company_name}}"
+company_aliases = []
+group_entities  = []
+fy_start = {{fy_start}}
+fy_end   = {{fy_end}}
+
+[tests]
+run = ["main", "cutoff"]
+
+[inputs]
+main_folder    = "inbox/main"
+cutoff_folder  = "inbox/cutoff"
+current_ledger = '{{current_ledger}}'   # single quotes: Windows paths with \ are taken literally
+post_ye_ledger = '{{post_ye_ledger}}'
+ledger_type    = "purchase_ledger"
+
+[output]
+folder = "output"
+
+[categories]
+file = "config/categories.toml"

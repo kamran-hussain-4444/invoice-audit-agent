@@ -1,0 +1,26 @@
+# Settings the Power Automate flow uses ("Use saved settings").
+# Ready to go with the synthetic client: drop invoices into inbox/main or inbox/cutoff.
+# Choosing "Enter new settings" in the flow overwrites this file from runs/pad_template.toml.
+
+[engagement]
+company_name    = "Brackenfield Engineering Ltd"
+company_aliases = ["Brackenfield Engineering Limited", "Brackenfield Precision"]
+group_entities  = ["Brackenfield Holdings Ltd"]
+fy_start = 2025-04-01
+fy_end   = 2026-03-31
+
+[tests]
+run = ["main", "cutoff"]
+
+[inputs]
+main_folder    = "inbox/main"
+cutoff_folder  = "inbox/cutoff"
+current_ledger = "data/synthetic/ledger_fy2026.xlsx"
+post_ye_ledger = "data/synthetic/ledger_post_ye.xlsx"
+ledger_type    = "purchase_ledger"
+
+[output]
+folder = "output"
+
+[categories]
+file = "config/categories.toml"
