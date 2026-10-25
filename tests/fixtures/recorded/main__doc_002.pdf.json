@@ -1,0 +1,53 @@
+{
+  "display_name": "doc_002.pdf",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1916,
+    "output_tokens": 505
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Meridian Business Travel Ltd",
+    "supplier_vat_number": "GB863047215",
+    "addressed_to": "Mr J Brackenfield",
+    "invoice_number": "MBT03228",
+    "invoice_date": "2025-05-23",
+    "currency": "GBP",
+    "net_amount": 369.0,
+    "vat_amount": 73.8,
+    "gross_amount": 442.8,
+    "description": "Hotel accommodation (2 nights) and return flights Manchley to Hamburg.",
+    "line_items": [
+      {
+        "description": "Hotel accommodation, 2 nights",
+        "amount": 114.34
+      },
+      {
+        "description": "Flights Manchley to Hamburg, return",
+        "amount": 254.66
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No travel dates or service period are printed on the invoice, and the invoice date must not be used as the service period.",
+    "suggested_category": "Travel & subsistence",
+    "category_reasoning": "The invoice is for hotel accommodation and flights, which are travel and subsistence costs.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": "Invoice is addressed to an individual (Mr J Brackenfield) rather than a company; customer ref BRA001. No travel dates shown."
+  }
+}

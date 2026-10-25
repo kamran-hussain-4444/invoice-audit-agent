@@ -1,0 +1,49 @@
+{
+  "display_name": "photo_121.jpg",
+  "test": "cutoff",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1923,
+    "output_tokens": 417
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Carter & Vale LLP",
+    "supplier_vat_number": "GB517390284",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "CV/26/2268",
+    "invoice_date": "2026-03-02",
+    "currency": "GBP",
+    "net_amount": 1950.0,
+    "vat_amount": 390.0,
+    "gross_amount": 2340.0,
+    "description": "Audit preparation support – February 2026",
+    "line_items": [
+      {
+        "description": "Audit preparation support – February 2026",
+        "amount": 1950.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": "2026-02-01",
+    "service_period_end": "2026-02-28",
+    "period_basis": "explicit_period",
+    "period_reasoning": "The line item states 'Audit preparation support – February 2026', so the service period is the whole of February 2026.",
+    "suggested_category": "Professional fees",
+    "category_reasoning": "Audit preparation support is accountancy/audit-related professional service.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "high"
+    },
+    "extraction_notes": null
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "display_name": "supplier_statement.pdf",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 2014,
+    "output_tokens": 724
+  },
+  "response": {
+    "document_type": "statement",
+    "supplier_name": "Pemberton Steel Stockholders Ltd",
+    "supplier_vat_number": null,
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": null,
+    "invoice_date": "2026-03-31",
+    "currency": "GBP",
+    "net_amount": null,
+    "vat_amount": null,
+    "gross_amount": 41029.44,
+    "description": "Statement of account listing seven invoices from 01/04/2025 to 08/04/2026, with a balance outstanding of £41,029.44.",
+    "line_items": [
+      {
+        "description": "PSS02393 Invoice 01/04/2025",
+        "amount": 6257.36
+      },
+      {
+        "description": "PSS02386 Invoice 26/07/2025",
+        "amount": 9398.4
+      },
+      {
+        "description": "PSS02409 Invoice 13/08/2025",
+        "amount": 11353.48
+      },
+      {
+        "description": "PSS02369 Invoice 28/01/2026",
+        "amount": 1492.2
+      },
+      {
+        "description": "PSS02444 Invoice 20/03/2026",
+        "amount": 3981.6
+      },
+      {
+        "description": "PSS02438 Invoice 02/04/2026",
+        "amount": 5130.72
+      },
+      {
+        "description": "PSS02455 Invoice 08/04/2026",
+        "amount": 3415.68
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "This is a statement of account listing multiple invoices with no goods or services period stated.",
+    "suggested_category": "Cost of sales",
+    "category_reasoning": "The supplier is a steel stockholder so purchases are likely raw materials, but the statement does not say what was bought.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "medium",
+      "currency": "high",
+      "description": "medium",
+      "service_period": "low"
+    },
+    "extraction_notes": "Document is a statement of account, not an invoice. The date used is the statement date. The gross amount is the balance outstanding. No VAT or net amounts are shown. The statement lists invoices dated after the statement date (02/04/2026 and 08/04/2026), which is an anomaly."
+  }
+}

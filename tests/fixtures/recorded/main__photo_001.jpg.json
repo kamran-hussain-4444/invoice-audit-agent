@@ -1,0 +1,53 @@
+{
+  "display_name": "photo_001.jpg",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1923,
+    "output_tokens": 475
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Harbour Office Supplies Ltd",
+    "supplier_vat_number": "GB451927368",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "INV3075",
+    "invoice_date": "2025-07-29",
+    "currency": "GBP",
+    "net_amount": 612.35,
+    "vat_amount": 122.47,
+    "gross_amount": 734.82,
+    "description": "Supply of toner cartridges (x4) and archive boxes (x50)",
+    "line_items": [
+      {
+        "description": "Toner cartridges x 4",
+        "amount": 412.35
+      },
+      {
+        "description": "Archive boxes x 50",
+        "amount": 200.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No service period or delivery date is printed on the invoice, and the description gives no clue to the period.",
+    "suggested_category": "Administrative expenses",
+    "category_reasoning": "Toner cartridges and archive boxes are office supplies and stationery.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": "Photo taken at a slight angle but all text is legible. Due date 28 August 2025; customer ref BRA001."
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "display_name": "blurry_receipt.jpg",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1926,
+    "output_tokens": 471
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Harbour Office Supplies Ltd",
+    "supplier_vat_number": null,
+    "addressed_to": null,
+    "invoice_number": null,
+    "invoice_date": null,
+    "currency": null,
+    "net_amount": null,
+    "vat_amount": null,
+    "gross_amount": null,
+    "description": "Office supplies, apparently desk organisers and toner cartridges; the text is too blurred to read reliably.",
+    "line_items": [],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "The image is too blurred to read any dates, and no service period or delivery date is legible.",
+    "suggested_category": "Administrative expenses",
+    "category_reasoning": "The items appear to be office supplies such as stationery and toner, which fall under administrative expenses.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "medium",
+      "addressed_to": "low",
+      "invoice_number": "low",
+      "invoice_date": "low",
+      "amounts": "low",
+      "currency": "low",
+      "description": "low",
+      "service_period": "low"
+    },
+    "extraction_notes": "The image is heavily blurred. Only the supplier name (Harbour Office Supplies Ltd) and the INVOICE heading are reasonably readable. The invoice number, dates, customer name, line items and amounts cannot be read reliably, so they are returned as null. A clearer copy is needed."
+  }
+}

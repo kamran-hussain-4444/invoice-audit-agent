@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_116.pdf",
+  "test": "cutoff",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1920,
+    "output_tokens": 425
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Oakridge Property Management Ltd",
+    "supplier_vat_number": "GB630184527",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "OPM001444",
+    "invoice_date": "2026-03-25",
+    "currency": "GBP",
+    "net_amount": 6250.0,
+    "vat_amount": 1250.0,
+    "gross_amount": 7500.0,
+    "description": "Rent for April 2026 invoiced in advance",
+    "line_items": [
+      {
+        "description": "Rent for April 2026 in advance",
+        "amount": 6250.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": "2026-04-01",
+    "service_period_end": "2026-04-30",
+    "period_basis": "explicit_period",
+    "period_reasoning": "The line item states 'Rent for April 2026 in advance', so the service period is 1 to 30 April 2026.",
+    "suggested_category": "Premises (rent & rates)",
+    "category_reasoning": "The invoice is for monthly rent of premises.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "high"
+    },
+    "extraction_notes": null
+  }
+}

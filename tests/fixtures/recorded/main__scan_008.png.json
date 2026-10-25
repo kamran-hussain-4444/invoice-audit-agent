@@ -1,0 +1,53 @@
+{
+  "display_name": "scan_008.png",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 2330,
+    "output_tokens": 514
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Lumen Print & Design Ltd",
+    "supplier_vat_number": "GB284716359",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "LPD-06478",
+    "invoice_date": "2025-06-03",
+    "currency": "GBP",
+    "net_amount": 2790.0,
+    "vat_amount": 558.0,
+    "gross_amount": 3348.0,
+    "description": "Exhibition stand hire for Northern Engineering Expo and 1,500 product brochures",
+    "line_items": [
+      {
+        "description": "Exhibition stand hire, Northern Engineering Expo",
+        "amount": 2150.0
+      },
+      {
+        "description": "Product brochures x 1,500",
+        "amount": 640.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No service dates, delivery date or event date are printed; the expo date is not stated, so the period cannot be determined.",
+    "suggested_category": "Marketing",
+    "category_reasoning": "Exhibition stand hire and product brochures are trade show and promotional materials, which fall under marketing.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": "Invoice date 03/06/2025 read as 3 June 2025 (UK format). Scan has speckle noise but values are legible."
+  }
+}

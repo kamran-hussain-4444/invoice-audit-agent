@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_107.xlsx",
+  "test": "cutoff",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 348,
+    "output_tokens": 420
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Greenline Energy Supply Ltd",
+    "supplier_vat_number": "GB742905186",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "GE-0007381",
+    "invoice_date": "2026-03-06",
+    "currency": "GBP",
+    "net_amount": 2087.31,
+    "vat_amount": 417.46,
+    "gross_amount": 2504.77,
+    "description": "Electricity supply for February 2026",
+    "line_items": [
+      {
+        "description": "Electricity supply 01/02/2026–28/02/2026",
+        "amount": 2087.31
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": "2026-02-01",
+    "service_period_end": "2026-02-28",
+    "period_basis": "explicit_period",
+    "period_reasoning": "The line item states the electricity supply period as 01/02/2026–28/02/2026.",
+    "suggested_category": "Utilities",
+    "category_reasoning": "The invoice is for electricity supply, which falls under Utilities.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "high"
+    },
+    "extraction_notes": null
+  }
+}

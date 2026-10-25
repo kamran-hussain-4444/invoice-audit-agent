@@ -1,0 +1,53 @@
+{
+  "display_name": "doc_015.pdf",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1941,
+    "output_tokens": 496
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Stackwise Software Ltd",
+    "supplier_vat_number": "GB395261840",
+    "addressed_to": "BRACKENFIELD ENGINEERING LIMITED",
+    "invoice_number": "SW-03506",
+    "invoice_date": "2025-12-30",
+    "currency": "GBP",
+    "net_amount": 2155.0,
+    "vat_amount": 431.0,
+    "gross_amount": 2586.0,
+    "description": "Endpoint security licences x 30 and laptop docking stations x 4",
+    "line_items": [
+      {
+        "description": "Endpoint security licences x 30",
+        "amount": 1331.74
+      },
+      {
+        "description": "Laptop docking stations x 4",
+        "amount": 823.26
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No service period, delivery date or licence term is stated on the invoice, and the invoice date must not be used as the period.",
+    "suggested_category": "IT & software",
+    "category_reasoning": "The invoice is for endpoint security licences and laptop docking stations, which are software licences and small IT equipment.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": "Mixed supply of software licences and small IT equipment; both fall under IT & software. No licence term shown."
+  }
+}

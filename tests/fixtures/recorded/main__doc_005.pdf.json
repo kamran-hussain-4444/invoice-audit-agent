@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_005.pdf",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1635,
+    "output_tokens": 402
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Carter & Vale LLP",
+    "supplier_vat_number": "GB517390284",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "CV/25/2157",
+    "invoice_date": "2025-12-27",
+    "currency": "GBP",
+    "net_amount": 2859.02,
+    "vat_amount": 571.8,
+    "gross_amount": 3430.82,
+    "description": "VAT return review",
+    "line_items": [
+      {
+        "description": "VAT return review",
+        "amount": 2859.02
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "The description 'VAT return review' gives no dates or period, so the service period cannot be determined.",
+    "suggested_category": "Professional fees",
+    "category_reasoning": "A VAT return review is an accountancy/advisory service provided by an LLP, which falls under professional fees.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": null
+  }
+}

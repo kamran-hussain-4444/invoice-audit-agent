@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_029.xlsx",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 337,
+    "output_tokens": 407
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Harbour Office Supplies Ltd",
+    "supplier_vat_number": "GB451927368",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "INV3105",
+    "invoice_date": "2026-03-31",
+    "currency": "GBP",
+    "net_amount": 274.9,
+    "vat_amount": 54.98,
+    "gross_amount": 329.88,
+    "description": "Toner cartridges x 4",
+    "line_items": [
+      {
+        "description": "Toner cartridges x 4",
+        "amount": 274.9
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No service period or delivery date is shown on the document, only an invoice date, which must not be used as the period.",
+    "suggested_category": "Administrative expenses",
+    "category_reasoning": "Toner cartridges are consumable office supplies, which fall under administrative expenses.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": null
+  }
+}

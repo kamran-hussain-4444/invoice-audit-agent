@@ -1,0 +1,53 @@
+{
+  "display_name": "doc_012.pdf",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1648,
+    "output_tokens": 507
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Fixwell Facilities Ltd",
+    "supplier_vat_number": "GB174582936",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "FX-3099",
+    "invoice_date": "2026-03-04",
+    "currency": "GBP",
+    "net_amount": 2146.22,
+    "vat_amount": 429.24,
+    "gross_amount": 2575.46,
+    "description": "Roof leak repair (bay 2) and annual boiler service",
+    "line_items": [
+      {
+        "description": "Roof leak repair, bay 2",
+        "amount": 1347.63
+      },
+      {
+        "description": "Boiler annual service",
+        "amount": 798.59
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No service dates or period are stated on the invoice; the repair and annual service dates are not given.",
+    "suggested_category": "Repairs & maintenance",
+    "category_reasoning": "A roof leak repair and annual boiler service are repairs and servicing of existing premises and equipment.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": "Scan is slightly skewed but legible. Line amounts appear on separate rows slightly offset from the descriptions; the first amount is matched to the roof repair and the second to the boiler service."
+  }
+}

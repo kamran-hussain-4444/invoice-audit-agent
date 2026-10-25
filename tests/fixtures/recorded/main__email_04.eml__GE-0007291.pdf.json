@@ -1,0 +1,49 @@
+{
+  "display_name": "email_04.eml › GE-0007291.pdf",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 2053,
+    "output_tokens": 457
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Greenline Energy Supply Ltd",
+    "supplier_vat_number": "GB742905186",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "GE-0007291",
+    "invoice_date": "2025-03-31",
+    "currency": "GBP",
+    "net_amount": 1876.4,
+    "vat_amount": 375.28,
+    "gross_amount": 2251.68,
+    "description": "Electricity supply, workshop meter",
+    "line_items": [
+      {
+        "description": "Electricity supply, workshop meter",
+        "amount": 1876.4
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "The invoice gives no billing period, meter read dates or delivery date, and the invoice date cannot be used as the service period.",
+    "suggested_category": "Utilities",
+    "category_reasoning": "The invoice is for electricity supply to the workshop meter, which is a utility cost.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": "No service period is stated for the electricity supply; only the invoice date (31-Mar-2025) and due date are shown."
+  }
+}

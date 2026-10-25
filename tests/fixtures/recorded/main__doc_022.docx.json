@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_022.docx",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 349,
+    "output_tokens": 405
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Greenline Energy Supply Ltd",
+    "supplier_vat_number": "GB742905186",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "GE-0007331",
+    "invoice_date": "2026-02-11",
+    "currency": "GBP",
+    "net_amount": 2081.91,
+    "vat_amount": 416.38,
+    "gross_amount": 2498.29,
+    "description": "Electricity supply, workshop meter",
+    "line_items": [
+      {
+        "description": "Electricity supply, workshop meter",
+        "amount": 2081.91
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No supply period, meter reading dates or delivery date are printed, so the period cannot be determined.",
+    "suggested_category": "Utilities",
+    "category_reasoning": "Electricity supply to a workshop meter is a utility cost.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": null
+  }
+}

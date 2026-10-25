@@ -1,0 +1,49 @@
+{
+  "display_name": "email_05.eml › PSS02455.jpg",
+  "test": "cutoff",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 2063,
+    "output_tokens": 446
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Pemberton Steel Stockholders Ltd",
+    "supplier_vat_number": "GB928310475",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "PSS02455",
+    "invoice_date": "2026-04-08",
+    "currency": "GBP",
+    "net_amount": 2846.4,
+    "vat_amount": 569.28,
+    "gross_amount": 3415.68,
+    "description": "Mild steel bar EN3B 50mm x 6m",
+    "line_items": [
+      {
+        "description": "Mild steel bar EN3B 50mm x 6m",
+        "amount": 2846.4
+      }
+    ],
+    "delivery_date": "2026-04-08",
+    "service_period_start": "2026-04-08",
+    "service_period_end": "2026-04-08",
+    "period_basis": "delivery_date",
+    "period_reasoning": "The invoice states 'Delivered 08/04/2026', so the goods relate to that single delivery date.",
+    "suggested_category": "Cost of sales",
+    "category_reasoning": "Mild steel bar is raw material purchased by an engineering company for use in production.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "high"
+    },
+    "extraction_notes": null
+  }
+}

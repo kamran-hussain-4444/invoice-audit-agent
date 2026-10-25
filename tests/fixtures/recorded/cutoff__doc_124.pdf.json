@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_124.pdf",
+  "test": "cutoff",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1946,
+    "output_tokens": 444
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Pemberton Steel Stockholders Ltd",
+    "supplier_vat_number": "GB928310475",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "PSS02438",
+    "invoice_date": "2026-04-02",
+    "currency": "GBP",
+    "net_amount": 4275.6,
+    "vat_amount": 855.12,
+    "gross_amount": 5130.72,
+    "description": "Stainless sheet 304 2mm",
+    "line_items": [
+      {
+        "description": "Stainless sheet 304 2mm",
+        "amount": 4275.6
+      }
+    ],
+    "delivery_date": "2026-03-28",
+    "service_period_start": "2026-03-28",
+    "service_period_end": "2026-03-28",
+    "period_basis": "delivery_date",
+    "period_reasoning": "The invoice states goods were delivered on 28/03/2026 (delivery note DN-48213), so that date is used as the period.",
+    "suggested_category": "Cost of sales",
+    "category_reasoning": "Stainless steel sheet is a raw material likely used directly in production by an engineering company.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "high"
+    },
+    "extraction_notes": null
+  }
+}

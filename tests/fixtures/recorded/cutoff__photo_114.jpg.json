@@ -1,0 +1,49 @@
+{
+  "display_name": "photo_114.jpg",
+  "test": "cutoff",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1923,
+    "output_tokens": 426
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Stackwise Software Ltd",
+    "supplier_vat_number": "GB395261840",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "SW-03563",
+    "invoice_date": "2026-03-31",
+    "currency": "GBP",
+    "net_amount": 950.0,
+    "vat_amount": 190.0,
+    "gross_amount": 1140.0,
+    "description": "IT support retainer for March 2026",
+    "line_items": [
+      {
+        "description": "IT support retainer – March 2026",
+        "amount": 950.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": "2026-03-01",
+    "service_period_end": "2026-03-31",
+    "period_basis": "explicit_period",
+    "period_reasoning": "The line item states 'IT support retainer – March 2026', which gives the period 1 to 31 March 2026.",
+    "suggested_category": "IT & software",
+    "category_reasoning": "An IT support retainer is an IT support service.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "high"
+    },
+    "extraction_notes": "Photo of document taken at a slight angle but all values are legible."
+  }
+}

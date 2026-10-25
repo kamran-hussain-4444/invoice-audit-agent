@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_034.pdf",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1920,
+    "output_tokens": 416
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Carter & Vale LLP",
+    "supplier_vat_number": "GB517390284",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "CV/25/2122",
+    "invoice_date": "2025-02-15",
+    "currency": "GBP",
+    "net_amount": 2400.0,
+    "vat_amount": 480.0,
+    "gross_amount": 2880.0,
+    "description": "Year-end accounts preparation",
+    "line_items": [
+      {
+        "description": "Year-end accounts preparation",
+        "amount": 2400.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "The invoice describes year-end accounts preparation but gives no financial year, dates or period, so the service period cannot be determined without guessing.",
+    "suggested_category": "Professional fees",
+    "category_reasoning": "Accounts preparation is an accountancy service, which falls under professional fees.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": null
+  }
+}

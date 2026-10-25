@@ -1,0 +1,49 @@
+{
+  "display_name": "scan_125.png",
+  "test": "cutoff",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 2330,
+    "output_tokens": 520
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Harbour Office Supplies Ltd",
+    "supplier_vat_number": "GB451927368",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "INV3134",
+    "invoice_date": "2026-01-05",
+    "currency": "GBP",
+    "net_amount": 1800.0,
+    "vat_amount": 360.0,
+    "gross_amount": 2160.0,
+    "description": "Office cleaning services, Q1 and April 2026",
+    "line_items": [
+      {
+        "description": "Office cleaning services, Q1 and April 2026",
+        "amount": 1800.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": "2026-01-01",
+    "service_period_end": "2026-04-30",
+    "period_basis": "explicit_period",
+    "period_reasoning": "The description states 'Q1 and April 2026', which covers 1 January 2026 to 31 March 2026 plus April 2026, so 2026-01-01 to 2026-04-30.",
+    "suggested_category": "Administrative expenses",
+    "category_reasoning": "Office cleaning services fall under cleaning within sundry administrative expenses.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "medium"
+    },
+    "extraction_notes": "Invoice date (05-Jan-2026) precedes part of the service period (Q1 and April 2026), so the April portion appears to be billed in advance. Service period was read from the description."
+  }
+}

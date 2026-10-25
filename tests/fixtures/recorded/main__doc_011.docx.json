@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_011.docx",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 350,
+    "output_tokens": 420
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Harbour Office Supplies Ltd",
+    "supplier_vat_number": "GB451927368",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "INV2231",
+    "invoice_date": "2025-12-17",
+    "currency": "GBP",
+    "net_amount": 565.0,
+    "vat_amount": 113.0,
+    "gross_amount": 678.0,
+    "description": "A4 copier paper (box of 5 reams) x 10",
+    "line_items": [
+      {
+        "description": "A4 copier paper (box of 5 reams) x 10",
+        "amount": 565.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No delivery date or service period is shown on the document; only the invoice date and due date are given.",
+    "suggested_category": "Administrative expenses",
+    "category_reasoning": "Copier paper is office stationery/supplies, which falls under administrative expenses.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": null
+  }
+}

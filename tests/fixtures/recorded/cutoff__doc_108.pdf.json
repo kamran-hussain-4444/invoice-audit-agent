@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_108.pdf",
+  "test": "cutoff",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1635,
+    "output_tokens": 425
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Harbour Office Supplies Ltd",
+    "supplier_vat_number": "GB451927368",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "INV3158",
+    "invoice_date": "2026-03-27",
+    "currency": "GBP",
+    "net_amount": 142.5,
+    "vat_amount": 28.5,
+    "gross_amount": 171.0,
+    "description": "Supply of 50 archive boxes",
+    "line_items": [
+      {
+        "description": "Archive boxes x 50",
+        "amount": 142.5
+      }
+    ],
+    "delivery_date": "2026-03-27",
+    "service_period_start": "2026-03-27",
+    "service_period_end": "2026-03-27",
+    "period_basis": "delivery_date",
+    "period_reasoning": "The invoice states 'Delivered 27/03/2026', so the goods relate to that single delivery date.",
+    "suggested_category": "Administrative expenses",
+    "category_reasoning": "Archive boxes are office storage supplies, which fall under stationery and office supplies.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "high"
+    },
+    "extraction_notes": null
+  }
+}

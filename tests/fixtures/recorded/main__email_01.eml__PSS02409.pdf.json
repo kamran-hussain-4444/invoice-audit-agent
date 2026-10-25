@@ -1,0 +1,57 @@
+{
+  "display_name": "email_01.eml › PSS02409.pdf",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 2130,
+    "output_tokens": 566
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Pemberton Steel Stockholders Ltd",
+    "supplier_vat_number": "GB928310475",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "PSS02409",
+    "invoice_date": "2025-08-13",
+    "currency": "GBP",
+    "net_amount": 9461.23,
+    "vat_amount": 1892.25,
+    "gross_amount": 11353.48,
+    "description": "Supply of steel and aluminium stock: mild steel bar EN3B, aluminium plate 6082 and stainless sheet 304.",
+    "line_items": [
+      {
+        "description": "Mild steel bar EN3B 50mm x 6m",
+        "amount": 3339.26
+      },
+      {
+        "description": "Aluminium plate 6082 10mm",
+        "amount": 2894.02
+      },
+      {
+        "description": "Stainless sheet 304 2mm",
+        "amount": 3227.95
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No delivery date or service period is printed on the invoice, and the invoice date must not be used as the period.",
+    "suggested_category": "Cost of sales",
+    "category_reasoning": "Steel, aluminium and stainless raw material bought by an engineering company is used directly in production.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": "The email mentions two invoices (PSS02393 and PSS02409), but this PDF contains only PSS02409. The line items sum to the net amount printed."
+  }
+}

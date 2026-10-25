@@ -1,0 +1,49 @@
+{
+  "display_name": "scan_102.png",
+  "test": "cutoff",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 2274,
+    "output_tokens": 429
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Stackwise Software Ltd",
+    "supplier_vat_number": "GB395261840",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "SW-03554",
+    "invoice_date": "2026-03-25",
+    "currency": "GBP",
+    "net_amount": 5400.0,
+    "vat_amount": 1080.0,
+    "gross_amount": 6480.0,
+    "description": "Annual software licence for the period 01/04/2026 to 31/03/2027",
+    "line_items": [
+      {
+        "description": "Annual software licence 01/04/2026-31/03/2027",
+        "amount": 5400.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": "2026-04-01",
+    "service_period_end": "2027-03-31",
+    "period_basis": "explicit_period",
+    "period_reasoning": "The line item explicitly states the licence period as 01/04/2026-31/03/2027.",
+    "suggested_category": "IT & software",
+    "category_reasoning": "An annual software licence is a software subscription/licence cost.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "high"
+    },
+    "extraction_notes": null
+  }
+}

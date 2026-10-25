@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_023.docx",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 339,
+    "output_tokens": 420
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Meridian Business Travel Ltd",
+    "supplier_vat_number": "GB863047215",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "MBT03224",
+    "invoice_date": "2026-05-12",
+    "currency": "GBP",
+    "net_amount": 486.2,
+    "vat_amount": 97.24,
+    "gross_amount": 583.44,
+    "description": "Return flights Manchley to Hamburg",
+    "line_items": [
+      {
+        "description": "Flights Manchley to Hamburg, return",
+        "amount": 486.2
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No travel dates or service period are shown on the invoice, only the route, so the period cannot be determined.",
+    "suggested_category": "Travel & subsistence",
+    "category_reasoning": "Return flights are business travel costs.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": "No travel date given; the invoice date was not used as the service period."
+  }
+}

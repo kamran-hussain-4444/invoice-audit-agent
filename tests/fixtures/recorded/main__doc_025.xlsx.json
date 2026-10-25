@@ -1,0 +1,53 @@
+{
+  "display_name": "doc_025.xlsx",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 371,
+    "output_tokens": 498
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Kestrel Insurance Brokers Ltd",
+    "supplier_vat_number": "GB206593871",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "KIB/02074",
+    "invoice_date": "2026-02-16",
+    "currency": "GBP",
+    "net_amount": 2510.55,
+    "vat_amount": 0.0,
+    "gross_amount": 2510.55,
+    "description": "Combined commercial insurance premium and engineering inspection cover",
+    "line_items": [
+      {
+        "description": "Combined commercial insurance premium",
+        "amount": 1082.98
+      },
+      {
+        "description": "Engineering inspection cover",
+        "amount": 1427.57
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No cover period, delivery date or other dates indicating the period of insurance are shown on the invoice.",
+    "suggested_category": "Insurance",
+    "category_reasoning": "The invoice is for commercial insurance premium and engineering inspection cover, which are insurance costs.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": "VAT shown as exempt (insurance) at 0.00. Due date 2026-03-18 and customer ref BRA001 not used as service period."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "display_name": "email_01.eml › PSS02393.pdf",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 2077,
+    "output_tokens": 451
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Pemberton Steel Stockholders Ltd",
+    "supplier_vat_number": "GB928310475",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "PSS02393",
+    "invoice_date": "2025-04-01",
+    "currency": "GBP",
+    "net_amount": 5214.47,
+    "vat_amount": 1042.89,
+    "gross_amount": 6257.36,
+    "description": "Aluminium plate 6082 10mm",
+    "line_items": [
+      {
+        "description": "Aluminium plate 6082 10mm",
+        "amount": 5214.47
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No service period or delivery date is printed on the invoice, so the period cannot be determined.",
+    "suggested_category": "Cost of sales",
+    "category_reasoning": "Aluminium plate is raw material bought by an engineering company for use in production.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": "The email mentions a second invoice (PSS02409), but the attached PDF contains only invoice PSS02393."
+  }
+}

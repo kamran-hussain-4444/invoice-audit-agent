@@ -1,0 +1,49 @@
+{
+  "display_name": "photo_016.jpg",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1923,
+    "output_tokens": 477
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Summit Cloud Inc.",
+    "supplier_vat_number": null,
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "SC-005674",
+    "invoice_date": "2025-07-22",
+    "currency": "USD",
+    "net_amount": 1250.0,
+    "vat_amount": 0.0,
+    "gross_amount": 1250.0,
+    "description": "Cloud hosting, standard plan",
+    "line_items": [
+      {
+        "description": "Cloud hosting, standard plan",
+        "amount": 1250.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No service period or delivery date is printed; the description gives no dates for the hosting period.",
+    "suggested_category": "IT & software",
+    "category_reasoning": "Cloud hosting is an IT hosting service.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": "US supplier with Tax ID US 84-2917365 (not a VAT number), so supplier_vat_number is null. Date read as Jul 22, 2025 (US format). Sales tax 0% shown as $0.00. Photo of document taken at an angle but text is legible."
+  }
+}

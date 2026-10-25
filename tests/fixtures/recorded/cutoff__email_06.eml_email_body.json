@@ -1,0 +1,49 @@
+{
+  "display_name": "email_06.eml (email body)",
+  "test": "cutoff",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 410,
+    "output_tokens": 434
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Meridian Business Travel Ltd",
+    "supplier_vat_number": "GB863047215",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "MBT03287",
+    "invoice_date": "2026-03-20",
+    "currency": "GBP",
+    "net_amount": 412.8,
+    "vat_amount": 82.56,
+    "gross_amount": 495.36,
+    "description": "Hotel accommodation, 16–18 March 2026",
+    "line_items": [
+      {
+        "description": "Hotel accommodation, 16–18 March 2026",
+        "amount": 412.8
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": "2026-03-16",
+    "service_period_end": "2026-03-18",
+    "period_basis": "explicit_period",
+    "period_reasoning": "The line description states hotel accommodation for 16–18 March 2026.",
+    "suggested_category": "Travel & subsistence",
+    "category_reasoning": "Hotel accommodation is a travel and subsistence cost.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "high"
+    },
+    "extraction_notes": "Invoice text was in the email body with no attachment."
+  }
+}

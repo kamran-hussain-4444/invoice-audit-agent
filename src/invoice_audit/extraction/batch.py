@@ -200,7 +200,10 @@ def run_batch(
         entries.append(entry)
         log.info("Submitted batch %s with %d request(s)", batch.id, len(group))
 
-    _wait(client, [e["batch_id"] for e in entries], on_poll, sleep)
+    # Documents that failed to load never reach the API but still count towards the progress total.
+    already_done = len(results)
+    progress = (lambda done: on_poll(done + already_done)) if on_poll else None
+    _wait(client, [e["batch_id"] for e in entries], progress, sleep)
 
     retry_ids: list[str] = []
     for entry in entries:

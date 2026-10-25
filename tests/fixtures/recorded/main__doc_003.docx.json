@@ -1,0 +1,53 @@
+{
+  "display_name": "doc_003.docx",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 361,
+    "output_tokens": 471
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Oakridge Property Management Ltd",
+    "supplier_vat_number": "GB630184527",
+    "addressed_to": "Brackenfeild Engineering Ltd",
+    "invoice_number": "OPM001435",
+    "invoice_date": "2025-08-14",
+    "currency": "GBP",
+    "net_amount": 5143.0,
+    "vat_amount": 1028.6,
+    "gross_amount": 6171.6,
+    "description": "Service charge and rent for Unit 4 Ferrow Lane",
+    "line_items": [
+      {
+        "description": "Service charge",
+        "amount": 2874.03
+      },
+      {
+        "description": "Rent, Unit 4 Ferrow Lane",
+        "amount": 2268.97
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "The document shows no service period or dates for the rent and service charge, only an invoice date and due date.",
+    "suggested_category": "Premises (rent & rates)",
+    "category_reasoning": "The invoice is for rent and service charge on a business unit.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": "Customer name is spelled 'Brackenfeild' as printed. No rent period stated."
+  }
+}

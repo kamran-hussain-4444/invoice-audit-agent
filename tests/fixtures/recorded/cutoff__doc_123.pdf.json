@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_123.pdf",
+  "test": "cutoff",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1928,
+    "output_tokens": 439
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Fixwell Facilities Ltd",
+    "supplier_vat_number": "GB174582936",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "FX-3114",
+    "invoice_date": "2026-04-06",
+    "currency": "GBP",
+    "net_amount": 1385.0,
+    "vat_amount": 277.0,
+    "gross_amount": 1662.0,
+    "description": "Repairs carried out 24-26 March 2026 in the press shop",
+    "line_items": [
+      {
+        "description": "Repairs carried out 24–26 March 2026, press shop",
+        "amount": 1385.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": "2026-03-24",
+    "service_period_end": "2026-03-26",
+    "period_basis": "explicit_period",
+    "period_reasoning": "The line description states the repairs were carried out 24–26 March 2026.",
+    "suggested_category": "Repairs & maintenance",
+    "category_reasoning": "The invoice is for repair work carried out on the press shop, which is repair of existing assets or premises.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "high"
+    },
+    "extraction_notes": null
+  }
+}

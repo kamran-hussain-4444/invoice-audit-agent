@@ -1,0 +1,57 @@
+{
+  "display_name": "doc_030.xlsx",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 371,
+    "output_tokens": 552
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Meridian Business Travel Ltd",
+    "supplier_vat_number": "GB863047215",
+    "addressed_to": "Brackenfield Precision",
+    "invoice_number": "MBT03233",
+    "invoice_date": "2025-08-16",
+    "currency": "GBP",
+    "net_amount": 315.0,
+    "vat_amount": 63.0,
+    "gross_amount": 378.0,
+    "description": "Business travel: return flights Manchley to Hamburg, 2 nights hotel accommodation, and return rail travel Halbridge to London.",
+    "line_items": [
+      {
+        "description": "Flights Manchley to Hamburg, return",
+        "amount": 110.79
+      },
+      {
+        "description": "Hotel accommodation, 2 nights",
+        "amount": 97.76
+      },
+      {
+        "description": "Return rail travel Halbridge to London",
+        "amount": 106.45
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No travel dates or service period are printed on the document, and the invoice date must not be used as the service period.",
+    "suggested_category": "Travel & subsistence",
+    "category_reasoning": "The invoice covers flights, hotel accommodation and rail travel, which are travel and subsistence costs.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": "Line item amounts (110.79 + 97.76 + 106.45 = 315.00) are copied as printed; arithmetic is left for separate checking."
+  }
+}

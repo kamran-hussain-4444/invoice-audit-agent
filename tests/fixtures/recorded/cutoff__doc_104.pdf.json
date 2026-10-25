@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_104.pdf",
+  "test": "cutoff",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1940,
+    "output_tokens": 450
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Lumen Print & Design Ltd",
+    "supplier_vat_number": "GB284716359",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "LPD-06542",
+    "invoice_date": "2026-03-20",
+    "currency": "GBP",
+    "net_amount": 2500.0,
+    "vat_amount": 500.0,
+    "gross_amount": 3000.0,
+    "description": "Trade show sponsorship, Northern Engineering Expo, event on 14 May 2026",
+    "line_items": [
+      {
+        "description": "Trade show sponsorship, Northern Engineering Expo, event 14 May 2026",
+        "amount": 2500.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": "2026-05-14",
+    "service_period_end": "2026-05-14",
+    "period_basis": "explicit_period",
+    "period_reasoning": "The description states the sponsored event takes place on 14 May 2026, so the service relates to that single date.",
+    "suggested_category": "Marketing",
+    "category_reasoning": "Sponsorship of a trade show event is a marketing expense.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "high"
+    },
+    "extraction_notes": null
+  }
+}

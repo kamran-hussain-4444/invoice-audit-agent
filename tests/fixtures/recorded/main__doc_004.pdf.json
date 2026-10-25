@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_004.pdf",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1602,
+    "output_tokens": 412
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Fixwell Facilities Ltd",
+    "supplier_vat_number": "GB174582936",
+    "addressed_to": "Brackenfield Engineering Ltd.",
+    "invoice_number": "FX-3066",
+    "invoice_date": "2025-09-14",
+    "currency": "GBP",
+    "net_amount": 429.0,
+    "vat_amount": 85.8,
+    "gross_amount": 514.8,
+    "description": "Replacement LED fittings, workshop",
+    "line_items": [
+      {
+        "description": "Replacement LED fittings, workshop",
+        "amount": 429.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No service period or delivery date is printed and the description gives no timing clue.",
+    "suggested_category": "Repairs & maintenance",
+    "category_reasoning": "Replacing LED fittings in the workshop is maintenance of existing premises rather than a new asset.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": null
+  }
+}

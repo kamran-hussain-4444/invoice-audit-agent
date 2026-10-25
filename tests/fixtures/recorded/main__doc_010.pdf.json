@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_010.pdf",
+  "test": "main",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 1929,
+    "output_tokens": 422
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Atlas Machine Tools Ltd",
+    "supplier_vat_number": "GB739164250",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "ATL-6781",
+    "invoice_date": "2025-05-11",
+    "currency": "GBP",
+    "net_amount": 18500.0,
+    "vat_amount": 3700.0,
+    "gross_amount": 22200.0,
+    "description": "New CNC lathe, model TL-300",
+    "line_items": [
+      {
+        "description": "New CNC lathe, model TL-300",
+        "amount": 18500.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": null,
+    "service_period_end": null,
+    "period_basis": "not_determinable",
+    "period_reasoning": "No delivery date or service period is shown on the document, and the invoice date must not be used as the period.",
+    "suggested_category": "Fixed assets (capital)",
+    "category_reasoning": "A new CNC lathe is a new machine with lasting use, so it is capital expenditure.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "low"
+    },
+    "extraction_notes": null
+  }
+}

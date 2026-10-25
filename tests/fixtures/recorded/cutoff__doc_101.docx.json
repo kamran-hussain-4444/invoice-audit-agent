@@ -1,0 +1,49 @@
+{
+  "display_name": "doc_101.docx",
+  "test": "cutoff",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 367,
+    "output_tokens": 447
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Pemberton Steel Stockholders Ltd",
+    "supplier_vat_number": "GB928310475",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "PSS02444",
+    "invoice_date": "2026-03-20",
+    "currency": "GBP",
+    "net_amount": 3318.0,
+    "vat_amount": 663.6,
+    "gross_amount": 3981.6,
+    "description": "Supply of aluminium plate 6082 10mm",
+    "line_items": [
+      {
+        "description": "Aluminium plate 6082 10mm",
+        "amount": 3318.0
+      }
+    ],
+    "delivery_date": "2026-03-20",
+    "service_period_start": "2026-03-20",
+    "service_period_end": "2026-03-20",
+    "period_basis": "delivery_date",
+    "period_reasoning": "The document states the goods were delivered on 20/03/2026, so that date is used for both start and end.",
+    "suggested_category": "Cost of sales",
+    "category_reasoning": "Aluminium plate is raw material from a steel stockholder, which is likely used directly in production by an engineering company.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "high"
+    },
+    "extraction_notes": null
+  }
+}

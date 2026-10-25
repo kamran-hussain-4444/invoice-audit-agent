@@ -1,0 +1,49 @@
+{
+  "display_name": "email_07.eml › FX-3144.pdf",
+  "test": "cutoff",
+  "model": "claude-sonnet-5-5",
+  "prompt_version": "1",
+  "mode": "batch",
+  "usage": {
+    "input_tokens": 2050,
+    "output_tokens": 467
+  },
+  "response": {
+    "document_type": "invoice",
+    "supplier_name": "Fixwell Facilities Ltd",
+    "supplier_vat_number": "GB174582936",
+    "addressed_to": "Brackenfield Engineering Ltd",
+    "invoice_number": "FX-3144",
+    "invoice_date": "2026-04-08",
+    "currency": "GBP",
+    "net_amount": 2400.0,
+    "vat_amount": 480.0,
+    "gross_amount": 2880.0,
+    "description": "Planned maintenance contract for the period 01/02/2026 to 31/05/2026",
+    "line_items": [
+      {
+        "description": "Planned maintenance contract 01/02/2026–31/05/2026",
+        "amount": 2400.0
+      }
+    ],
+    "delivery_date": null,
+    "service_period_start": "2026-02-01",
+    "service_period_end": "2026-05-31",
+    "period_basis": "explicit_period",
+    "period_reasoning": "The line item prints an explicit contract period of 01/02/2026 to 31/05/2026 (UK day/month format).",
+    "suggested_category": "Repairs & maintenance",
+    "category_reasoning": "A planned maintenance contract covers servicing and upkeep of existing assets or premises rather than new assets.",
+    "multiple_invoices_detected": false,
+    "field_confidence": {
+      "supplier_name": "high",
+      "addressed_to": "high",
+      "invoice_number": "high",
+      "invoice_date": "high",
+      "amounts": "high",
+      "currency": "high",
+      "description": "high",
+      "service_period": "high"
+    },
+    "extraction_notes": null
+  }
+}
