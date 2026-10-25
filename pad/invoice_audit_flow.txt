@@ -18,7 +18,7 @@ LOOP WHILE (1) = (1)
         WAIT 15
         NEXT LOOP
     END
-    Scripting.RunPowershellScript.RunPowershellScript Script: $'''powershell -NoProfile -ExecutionPolicy Bypass -File \"%ProjectDir%\\scripts\\run_audit.ps1\" -Config \"%RunConfig%\" -ArchiveInbox''' ScriptOutput=> PowershellOutput ScriptError=> ScriptError
+    Scripting.RunPowershellScript.RunScript Script: $'''powershell -NoProfile -ExecutionPolicy Bypass -File \"%ProjectDir%\\scripts\\run_audit.ps1\" -Config \"%RunConfig%\" -ArchiveInbox''' ScriptOutput=> PowershellOutput
     SET LastCount TO 0
     IF Contains(PowershellOutput, $'''EXITCODE: 1''', False) THEN
         Display.ShowMessageDialog.ShowMessage Title: $'''Invoice audit failed''' Message: $'''The run stopped with an error. Details:

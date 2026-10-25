@@ -133,9 +133,10 @@ Check: `logs\pad_<timestamp>.log` has the full console output of each run.
 | The run never starts | Is the flow running (not just saved)? Are the files in `inbox\main` or `inbox\cutoff`? |
 | Message shows `%LatestRun[...]%` literally | Check step 18 produced `LatestRun`; names are case-sensitive. |
 
-`pad\invoice_audit_flow.txt` contains the same flow as PAD's text format. Copying it and pasting into the designer
-(Ctrl+V) can save typing, but PAD's text format changes between versions, so building it from the steps above is
-the reliable route.
+**Shortcut:** `pad\invoice_audit_flow.txt` contains Part A and Part B in PAD's text format. Open it, copy everything
+(Ctrl+A, Ctrl+C), click in the empty flow in the designer and paste (Ctrl+V). This was verified in PAD on
+Windows 11 (October 2026). If a future PAD version shows an "Unknown action", delete it and add that action by hand
+using the steps above; the other actions still paste.
 
 ## Production version
 
