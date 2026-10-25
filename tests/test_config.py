@@ -102,6 +102,13 @@ def test_settings_file_not_found(tmp_path):
         load_config(tmp_path / "nope.toml")
 
 
+def test_settings_saved_with_bom_still_load(tmp_path):
+    # Windows Notepad / PowerShell 5 add a byte-order mark; it must not break the run.
+    path = tmp_path / "run.toml"
+    path.write_bytes(b"\xef\xbb\xbf" + example_text().encode("utf-8"))
+    assert load_config(path, base_dir=ROOT, check_files=False).engagement.company_name == "Brackenfield Engineering Ltd"
+
+
 def test_invalid_toml(tmp_path):
     with pytest.raises(ConfigError, match="not valid TOML"):
         load_config(write_run(tmp_path, "this is = = not toml"), check_files=False)

@@ -16,3 +16,6 @@ inbox/
 processed/
 data/scale_*/
 *.local.toml
+
+# Personal demo kit (not part of the project)
+demo/

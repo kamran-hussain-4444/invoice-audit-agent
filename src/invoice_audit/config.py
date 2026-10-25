@@ -199,8 +199,10 @@ def _read_toml(path: Path) -> dict:
     if not path.is_file():
         raise ConfigError(f"Settings file not found: {path}")
     try:
-        with path.open("rb") as f:
-            return tomllib.load(f)
+        # utf-8-sig: Notepad and PowerShell 5 often save files with an invisible "BOM" that tomllib rejects.
+        return tomllib.loads(path.read_bytes().decode("utf-8-sig"))
+    except UnicodeDecodeError:
+        raise ConfigError(f"{path} is not saved as UTF-8 text. Re-save it as UTF-8.") from None
     except tomllib.TOMLDecodeError as e:
         raise ConfigError(f"{path} is not valid TOML: {e}") from None
 
