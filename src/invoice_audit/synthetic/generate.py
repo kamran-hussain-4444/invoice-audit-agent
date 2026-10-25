@@ -165,21 +165,21 @@ def _edge_cases(scenario: Scenario, out: Path, seed: int) -> list[dict]:
     ]
 
 
-def generate(seed: int, out: Path) -> dict:
-    """Write the full synthetic engagement into `out`. Returns the answer key."""
-    scenario = build_scenario(seed)
+def prepare_folders(out: Path) -> None:
     for sub in ("main_sample", "cutoff_sample"):
         shutil.rmtree(out / sub, ignore_errors=True)
         (out / sub).mkdir(parents=True)
 
-    for spec in scenario.invoices:
+
+def write_invoice_files(invoices: list[InvoiceSpec], out: Path, seed: int) -> None:
+    for spec in invoices:
         if not spec.format.startswith("email_"):
             (out / spec.file).write_bytes(_render(spec, seed * 1000 + hash_id(spec)))
-    _write_emails(scenario.invoices, out, seed)
-    edge_cases = _edge_cases(scenario, out, seed)
-    current_lines, post_ye_lines = write_ledgers(scenario, out)
+    _write_emails(invoices, out, seed)
 
-    invoices = sorted(scenario.invoices, key=lambda s: s.invoice_id)
+
+def write_answer_key(seed: int, invoices: list[InvoiceSpec], edge_cases: list[dict], out: Path) -> dict:
+    invoices = sorted(invoices, key=lambda s: s.invoice_id)
     answer_key = {
         "seed": seed,
         "company": COMPANY,
@@ -202,6 +202,17 @@ def generate(seed: int, out: Path) -> dict:
     }
     # newline="\n" so the file is byte-identical on Windows and Linux (the generator test compares hashes)
     (out / "answer_key.json").write_text(json.dumps(answer_key, indent=2) + "\n", encoding="utf-8", newline="\n")
+    return answer_key
+
+
+def generate(seed: int, out: Path) -> dict:
+    """Write the full synthetic engagement into `out`. Returns the answer key."""
+    scenario = build_scenario(seed)
+    prepare_folders(out)
+    write_invoice_files(scenario.invoices, out, seed)
+    edge_cases = _edge_cases(scenario, out, seed)
+    current_lines, post_ye_lines = write_ledgers(scenario, out)
+    answer_key = write_answer_key(seed, scenario.invoices, edge_cases, out)
     readme = README.format(seed=seed, out=out.as_posix(), current=current_lines, post_ye=post_ye_lines)
     (out / "README.md").write_text(readme, encoding="utf-8", newline="\n")
     return answer_key

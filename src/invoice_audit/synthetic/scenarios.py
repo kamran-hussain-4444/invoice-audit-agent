@@ -414,7 +414,7 @@ def _assign_files(specs: list[InvoiceSpec], formats: list[str], folder: str, pre
 class Scenario:
     seed: int
     invoices: list[InvoiceSpec]
-    blurry: InvoiceSpec  # edge case: heavily blurred photo, must come out as needs_review
+    blurry: InvoiceSpec | None  # edge case: heavily blurred photo, must come out as needs_review (None at scale)
     statement_supplier: Supplier
     numbering: "_Numbering"
     rng: random.Random

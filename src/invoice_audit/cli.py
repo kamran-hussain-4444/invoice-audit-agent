@@ -232,15 +232,24 @@ def cache_clear(
 def generate_data(
     seed: int = typer.Option(42, help="Random seed. The same seed always gives the same files."),
     out: Path = typer.Option(Path("data/synthetic"), help="Folder to write into."),
-    scale: int | None = typer.Option(None, help="Generate N invoices for a load test (milestone M7)."),
+    scale: int | None = typer.Option(
+        None, help="Generate N invoices for a load test (written to data/scale_N, not committed)."
+    ),
 ) -> None:
     """Generate the synthetic engagement: invoices, ledgers and answer_key.json."""
     from invoice_audit.synthetic.generate import generate
+    from invoice_audit.synthetic.scale import generate_scale
 
     if scale is not None:
-        typer.echo("--scale is not available yet (it arrives in milestone M7).", err=True)
-        raise typer.Exit(1)
-    answer_key = generate(seed, out)
+        if out == Path("data/synthetic"):
+            out = Path(f"data/scale_{scale}")  # never overwrite the committed 60-invoice data set
+        if scale < 60:
+            typer.echo("--scale needs at least 60 invoices.", err=True)
+            raise typer.Exit(1)
+        answer_key = generate_scale(scale, seed, out)
+        typer.echo(f"Run it: uv run audit run --config {out.as_posix()}/run.toml --dry-run")
+    else:
+        answer_key = generate(seed, out)
     formats = Counter(item["format"] for item in answer_key["invoices"])
     typer.echo(f"Wrote {len(answer_key['invoices'])} invoices + {len(answer_key['edge_cases'])} edge cases to {out}")
     for name, count in sorted(formats.items()):

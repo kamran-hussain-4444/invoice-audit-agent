@@ -114,19 +114,21 @@ def _write(path: Path, rows: list[list]) -> None:
     path.write_bytes(stable_zip(buffer.getvalue()))
 
 
-def write_ledgers(scenario: Scenario, out: Path) -> tuple[int, int]:
+def write_ledgers(
+    scenario: Scenario, out: Path, current_filler: int = 100, post_ye_filler: int = 50
+) -> tuple[int, int]:
     """Writes ledger_fy2026.xlsx and ledger_post_ye.xlsx. Returns the number of lines in each."""
     current: list[list] = []
     post_ye: list[list] = []
-    for spec in [*scenario.invoices, scenario.blurry]:
+    for spec in [*scenario.invoices, *([scenario.blurry] if scenario.blurry else [])]:
         if spec.recorded_in in ("current", "both"):
             current.append(_sample_row(spec, spec.posting_date))
         if spec.recorded_in == "post_ye":
             post_ye.append(_sample_row(spec, spec.posting_date))
         if spec.recorded_in == "both":
             post_ye.append(_sample_row(spec, spec.post_ye_posting_date))
-    current += _filler(scenario, FY_START, FY_END, 100)
-    post_ye += _filler(scenario, FY_END + timedelta(days=1), POST_YE_END, 50)
+    current += _filler(scenario, FY_START, FY_END, current_filler)
+    post_ye += _filler(scenario, FY_END + timedelta(days=1), POST_YE_END, post_ye_filler)
     _write(out / "ledger_fy2026.xlsx", current)
     _write(out / "ledger_post_ye.xlsx", post_ye)
     return len(current), len(post_ye)
