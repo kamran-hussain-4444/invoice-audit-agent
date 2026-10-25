@@ -65,8 +65,11 @@ def validate_extraction(invoice: ExtractedInvoice, today: date | None = None) ->
         if getattr(invoice, name) is None and name not in invoice.unparseable_dates:
             flag(f"{label} not found", name)
 
+    no_period_stated = invoice.period_basis == "not_determinable" and invoice.service_period_start is None
     for key, fields in CONFIDENCE_FIELDS.items():
         if getattr(invoice.field_confidence, key) == "low":
+            if key == "service_period" and no_period_stated:
+                continue  # nothing was read, so nothing to doubt; cut-off falls back to the invoice date (never Pass)
             flag(f"Low confidence: {key.replace('_', ' ')}", *fields)
 
     net, vat, gross = invoice.net_amount, invoice.vat_amount, invoice.gross_amount

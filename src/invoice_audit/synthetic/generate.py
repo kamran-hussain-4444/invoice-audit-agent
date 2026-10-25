@@ -38,6 +38,8 @@ Fictional entities. Any resemblance to real organisations is coincidental.
 def truth(spec: InvoiceSpec) -> dict:
     """What a perfect extraction of this invoice would return."""
     start, end = spec.service_period or (None, None)
+    if spec.period_basis == "delivery_date":
+        start = end = spec.delivery_date  # the prompt's convention: goods → period is the delivery date
     return {
         "document_type": "invoice",
         "supplier_name": spec.supplier.name,

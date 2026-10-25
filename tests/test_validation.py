@@ -51,13 +51,21 @@ def test_missing_gross_does_not_trip_arithmetic_check():
         ("invoice_date", {"invoice_date"}),
         ("amounts", {"net_amount", "vat_amount", "gross_amount"}),
         ("addressed_to", {"addressed_to"}),
-        ("service_period", {"service_period"}),
     ],
 )
 def test_low_confidence_marks_fields_weak(key, fields):
     outcome = check(confidence={key: "low"})
     assert outcome.status == "needs_review"
     assert outcome.weak_fields == fields
+
+
+def test_low_period_confidence_ignored_when_no_period_stated():
+    # Claude often marks "no period found" as low confidence; the cut-off fallback already handles it.
+    outcome = check(period_basis="not_determinable", confidence={"service_period": "low"})
+    assert outcome.status == "ok"
+    explicit = check(period_basis="explicit_period", service_period_start="2026-03-01",
+                     service_period_end="2026-03-31", confidence={"service_period": "low"})  # fmt: skip
+    assert explicit.weak_fields == {"service_period"}
 
 
 def test_medium_confidence_alone_is_fine():
