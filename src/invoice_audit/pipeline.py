@@ -18,6 +18,7 @@ from dotenv import load_dotenv
 
 from invoice_audit.config import RunConfig
 from invoice_audit.discovery import discover
+from invoice_audit.extraction.batch import collect_pending, run_batch
 from invoice_audit.extraction.cache import ExtractionCache, cache_key
 from invoice_audit.extraction.cost import estimate_cost, usage_cost
 from invoice_audit.extraction.live import DocResult, Job, run_live
@@ -116,6 +117,7 @@ def run_pipeline(
     client=None,
     on_progress: Callable[[DocResult], None] | None = None,
     on_start: Callable[[int, str], None] | None = None,
+    on_poll: Callable[[int], None] | None = None,
 ) -> RunResult | DryRun:
     started = datetime.now()
     clock = time.monotonic()
@@ -188,18 +190,28 @@ def run_pipeline(
 
     # 4. Extract what isn't cached.
     if jobs:
-        if chosen == "batch":
-            raise FatalError("Batch mode is not available yet (milestone M6). Use --mode live.")
         client = client or make_client()
+        # First finish any batch an earlier run submitted but never collected (already paid for).
+        resumed = collect_pending(client, template, cfg, cache, on_poll)
+        if resumed:
+            remaining = []
+            for job in jobs:
+                if job.cache_key in resumed:
+                    invoice, usage = resumed[job.cache_key]
+                    _account(DocResult(job.document, "extracted", invoice, usage, mode="batch"), stats, cfg, records)
+                else:
+                    remaining.append(job)
+            jobs = remaining
+            chosen = choose_mode(requested_mode, len(jobs), cfg.ai.batch_threshold)
+    if jobs:
         if on_start:
             on_start(len(jobs), chosen)
-        results = run_live(jobs, client, template, cfg, cache, on_progress)
+        if chosen == "batch":
+            results = run_batch(jobs, client, template, cfg, cache, on_progress, on_poll)
+        else:
+            results = run_live(jobs, client, template, cfg, cache, on_progress)
         for result in results:
-            records[result.document.doc_id] = record_from_result(result)
-            if result.usage is not None:
-                stats.live_calls += 1
-                _add_usage(stats.tokens, result.usage)
-                stats.cost_usd += usage_cost(result.usage, cfg.ai.pricing, batch=result.mode == "batch")
+            _account(result, stats, cfg, records)
 
     ordered = [records[key] for key in order if key in records]
     stats.documents = len(documents)
@@ -211,6 +223,19 @@ def run_pipeline(
     stats.duration_seconds = time.monotonic() - clock
     return RunResult(cfg, started, ordered, main_rows, cutoff_rows, findings, stats,
                      ledger_lines={"current": len(current_lines), "post_ye": len(post_ye_lines)})  # fmt: skip
+
+
+def _account(result: DocResult, stats: RunStats, cfg: RunConfig, records: dict) -> None:
+    """Record one extraction result and add its tokens and cost to the run totals."""
+    records[result.document.doc_id] = record_from_result(result)
+    if result.usage is None:
+        return
+    if result.mode == "batch":
+        stats.batch_calls += 1
+    else:
+        stats.live_calls += 1
+    _add_usage(stats.tokens, result.usage)
+    stats.cost_usd += usage_cost(result.usage, cfg.ai.pricing, batch=result.mode == "batch")
 
 
 def _add_usage(total: TokenUsage, usage: TokenUsage) -> None:

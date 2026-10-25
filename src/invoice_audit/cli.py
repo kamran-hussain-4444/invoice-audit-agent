@@ -128,20 +128,35 @@ def run(
     )
     task = None
     failed = 0
+    batch_mode = False
 
     def on_start(total: int, chosen_mode: str) -> None:
-        nonlocal task
-        console.print(f"Extracting {total} document(s) in {chosen_mode} mode...")
+        nonlocal task, batch_mode
+        batch_mode = chosen_mode == "batch"
+        note = (
+            " (Batches API: usually minutes, can take up to an hour; safe to Ctrl+C and re-run)" if batch_mode else ""
+        )
+        console.print(f"Extracting {total} document(s) in {chosen_mode} mode{note}...")
         progress.start()
         task = progress.add_task("extract", total=total, failed=0)
 
     def on_progress(result) -> None:
         nonlocal failed
         failed += result.outcome == "failed"
-        progress.update(task, advance=1, failed=failed)
+        if batch_mode:
+            progress.update(task, failed=failed)  # batch progress comes from on_poll
+        else:
+            progress.update(task, advance=1, failed=failed)
+
+    def on_poll(done: int) -> None:
+        if task is None:
+            console.print(f"Collecting a batch from an earlier run: {done} result(s) ready...")
+        else:
+            progress.update(task, completed=done)
 
     try:
-        result = run_pipeline(cfg, mode, not no_cache, limit, dry_run, on_progress=on_progress, on_start=on_start)
+        result = run_pipeline(cfg, mode, not no_cache, limit, dry_run, on_progress=on_progress, on_start=on_start,
+                              on_poll=on_poll)  # fmt: skip
     except (FatalError, LedgerError) as e:
         console.print(f"[red]{e}[/red]")
         raise typer.Exit(1) from None

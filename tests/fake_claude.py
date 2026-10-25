@@ -69,9 +69,49 @@ def message(text: str | None, stop_reason: str = "end_turn", input_tokens: int =
     return SimpleNamespace(stop_reason=stop_reason, content=content, usage=usage, stop_details=details)
 
 
+class FakeBatches:
+    """Stand-in for client.messages.batches. Results come back in reverse order, like the real API may."""
+
+    def __init__(self, client: "FakeClient"):
+        self.client = client
+        self.created: dict[str, list[dict]] = {}
+        self.polls_before_end = 1
+        self.errored: set[str] = set()  # source names whose batch item errors
+        self.interrupt_on_retrieve = False
+
+    def create(self, requests):
+        batch_id = f"msgbatch_{len(self.created) + 1:03d}"
+        self.created[batch_id] = list(requests)
+        return SimpleNamespace(id=batch_id, processing_status="in_progress")
+
+    def retrieve(self, batch_id):
+        if self.interrupt_on_retrieve:
+            raise KeyboardInterrupt  # the user pressed Ctrl+C while waiting
+        self.polls_before_end -= 1
+        ended = self.polls_before_end < 0
+        total = len(self.created[batch_id])
+        counts = SimpleNamespace(processing=0 if ended else total, succeeded=total if ended else 0, errored=0,
+                                 canceled=0, expired=0)  # fmt: skip
+        return SimpleNamespace(id=batch_id, processing_status="ended" if ended else "in_progress",
+                               request_counts=counts)  # fmt: skip
+
+    def results(self, batch_id):
+        for request in reversed(self.created[batch_id]):
+            if _source_name(request["params"]) in self.errored:
+                outcome = SimpleNamespace(type="errored", error=SimpleNamespace(type="api_error"))
+            else:
+                outcome = SimpleNamespace(type="succeeded", message=self.client.answer(request["params"]))
+            yield SimpleNamespace(custom_id=request["custom_id"], result=outcome)
+
+
+def _source_name(params: dict) -> str:
+    source = params["messages"][0]["content"][0]["text"]
+    return source.removeprefix("Source: ").rsplit(" (", 1)[0]
+
+
 @dataclass
 class FakeClient:
-    """Answers from RESPONSES. `fail_on` names raise; `calls` records every request's source name."""
+    """Answers from RESPONSES. `fail_on` names raise; `calls` records every live request's source name."""
 
     fail_on: set[str] = field(default_factory=set)
     calls: list[str] = field(default_factory=list)
@@ -79,6 +119,12 @@ class FakeClient:
 
     def __post_init__(self):
         self.beta = SimpleNamespace(messages=SimpleNamespace(create=self.create, stream=None))
+        self.batches = FakeBatches(self)
+        self.messages = SimpleNamespace(batches=self.batches)
+
+    def answer(self, params: dict):
+        assert "fallbacks" not in params  # rejected by the Batches API
+        return message(json.dumps(RESPONSES[_source_name(params)]))
 
     def create(self, **params):
         source = params["messages"][0]["content"][0]["text"]
