@@ -276,3 +276,66 @@ def check_inputs_exist(cfg: RunConfig) -> None:
             missing.append(f"  - {key}: {'folder' if is_folder else 'file'} not found: {path}")
     if missing:
         raise ConfigError("Input files or folders are missing:\n" + "\n".join(missing))
+
+
+RUN_TEMPLATE = """# Run settings for one engagement. Paths are relative to the project folder.
+# Fill in [engagement] and [inputs], then: uv run audit run --config <this file> --dry-run
+
+[engagement]
+company_name    = "Example Client Ltd"          # the audited entity, as it should appear on invoices
+company_aliases = []                            # trading names, e.g. ["Example Client Limited"]
+group_entities  = []                            # related companies, e.g. ["Example Holdings Ltd"]
+fy_start = 2025-04-01
+fy_end   = 2026-03-31
+
+[tests]
+run = ["main", "cutoff"]                        # any subset of "main", "cutoff"
+
+[inputs]
+main_folder    = "inbox/main"                   # invoices sampled for Test 1 (main testing)
+cutoff_folder  = "inbox/cutoff"                 # invoices sampled for Test 2 (cut-off)
+current_ledger = "ledgers/current_year.xlsx"    # current-year purchase ledger / AP listing (xlsx or csv)
+post_ye_ledger = "ledgers/post_year_end.xlsx"   # post-year-end ledger (needed for cut-off)
+ledger_type    = "purchase_ledger"              # "purchase_ledger" compares NET; "ap_listing" compares GROSS
+ledger_sheet   = ""                             # sheet name for xlsx; blank = first sheet
+
+[ledger.columns]                                # your ledger's column headers (change to match the export)
+posting_date    = "Posting Date"
+supplier        = "Supplier"
+invoice_number  = "Invoice No"
+description     = "Description"
+nominal_code    = "Nominal Code"
+nominal_account = "Nominal Account"
+net             = "Net"
+vat             = "VAT"
+gross           = "Gross"
+currency        = "Currency"                    # optional; blank = GBP
+original_amount = "Original Amount"             # optional; foreign-currency amount
+
+[output]
+folder = "output"
+
+[ai]
+model           = "claude-sonnet-5-5"
+effort          = "medium"                      # low | medium | high
+mode            = "auto"                        # auto | live | batch
+batch_threshold = 50                            # auto uses the (half price) Batches API above this many new documents
+max_workers     = 8
+cache_path      = ".cache/extractions.sqlite"
+max_pdf_pages   = 20
+image_max_edge  = 1568
+
+[ai.pricing]                                    # USD per million tokens; update if prices change
+input          = 2.00
+output         = 10.00
+cache_read     = 0.20
+batch_discount = 0.50
+
+[matching]
+value_tolerance        = 0.00                   # exact to the penny
+addressee_pass_score   = 92
+addressee_review_score = 85
+
+[categories]
+file = "config/categories.toml"
+"""

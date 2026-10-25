@@ -4,6 +4,7 @@ All randomness comes from the `seed` argument, so the same seed gives the same i
 """
 
 import random
+import time
 from io import BytesIO
 
 import numpy as np
@@ -57,7 +58,9 @@ def scanned_pdf(pdf_bytes: bytes, seed: int) -> bytes:
     image = _scan_look(rasterise(pdf_bytes), seed)
     image = Image.open(BytesIO(_jpeg(image, 55)))  # bake in compression artefacts
     out = BytesIO()
-    image.save(out, format="PDF", resolution=150.0)
+    # fixed dates: Pillow otherwise stamps "now", which would change the bytes (and the cache key) every run
+    fixed = time.gmtime(1767225600)  # 2026-01-01 00:00 UTC
+    image.save(out, format="PDF", resolution=150.0, creationDate=fixed, modDate=fixed)
     return out.getvalue()
 
 

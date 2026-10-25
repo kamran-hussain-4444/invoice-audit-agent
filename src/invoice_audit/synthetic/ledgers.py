@@ -7,6 +7,7 @@ the current ledger and 50 in the post-YE ledger make the listings look like a re
 import random
 from datetime import date, datetime, timedelta
 from decimal import Decimal
+from io import BytesIO
 from pathlib import Path
 
 from openpyxl import Workbook
@@ -15,6 +16,7 @@ from openpyxl.styles import Font, PatternFill
 from invoice_audit.money import quantize
 from invoice_audit.synthetic.entities import CATEGORY_CODE, FILLER_SUPPLIERS, NOMINAL_ACCOUNTS, SUPPLIERS
 from invoice_audit.synthetic.scenarios import FY_END, FY_START, POST_YE_END, InvoiceSpec, Scenario, ledger_code
+from invoice_audit.synthetic.stable_zip import stable_zip
 
 HEADERS = ["Posting Date", "Supplier", "Invoice No", "Description", "Nominal Code", "Nominal Account", "Net", "VAT",
            "Gross", "Currency", "Original Amount"]  # fmt: skip
@@ -107,7 +109,9 @@ def _write(path: Path, rows: list[list]) -> None:
         ws.column_dimensions[column].width = width
     ws.freeze_panes = "A2"
     path.parent.mkdir(parents=True, exist_ok=True)
-    wb.save(path)
+    buffer = BytesIO()
+    wb.save(buffer)
+    path.write_bytes(stable_zip(buffer.getvalue()))
 
 
 def write_ledgers(scenario: Scenario, out: Path) -> tuple[int, int]:

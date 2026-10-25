@@ -7,6 +7,7 @@ from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Pt
 
+from invoice_audit.synthetic.stable_zip import stable_zip
 from invoice_audit.synthetic.view import InvoiceView
 
 FIXED_TIME = datetime(2026, 1, 1, 9, 0, 0)  # document properties, so files don't change between runs
@@ -63,4 +64,4 @@ def render_invoice_docx(view: InvoiceView) -> bytes:
     doc.sections[0].footer.paragraphs[0].text = view.footer
     out = BytesIO()
     doc.save(out)
-    return out.getvalue()
+    return stable_zip(out.getvalue())

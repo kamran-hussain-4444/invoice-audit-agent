@@ -28,6 +28,19 @@ def test_same_seed_gives_identical_answer_key(fresh):
     assert sha256(out / "answer_key.json") == sha256(COMMITTED / "answer_key.json")
 
 
+def test_regenerated_files_are_byte_identical(fresh):
+    # Same bytes = same cache key, so regenerating the data never makes the next run pay again.
+    out, _ = fresh
+    different = [
+        path.relative_to(out).as_posix()
+        for path in sorted(out.rglob("*"))
+        if path.is_file()
+        and path.name != "README.md"
+        and path.read_bytes() != (COMMITTED / path.relative_to(out)).read_bytes()
+    ]
+    assert different == []
+
+
 def test_format_counts(fresh):
     _, key = fresh
     formats = Counter(item["format"] for item in key["invoices"])

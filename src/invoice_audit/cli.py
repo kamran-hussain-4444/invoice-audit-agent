@@ -101,6 +101,7 @@ def run(
     no_cache: bool = typer.Option(False, "--no-cache", help="Ignore cached extractions (re-pays for every document)."),
     limit: int = typer.Option(None, help="Only the first N documents per folder (cheap experiments)."),
     dry_run: bool = typer.Option(False, "--dry-run", help="Count files and estimate cost. No API calls."),
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Also print every extracted document."),
 ) -> None:
     """Extract every invoice and run the audit tests."""
     from datetime import datetime
@@ -155,11 +156,34 @@ def run(
         console.print(f"Mode: {result.mode}   Estimated cost: ${result.estimated_cost_usd:.2f} (no API calls made)")
         return
 
+    from invoice_audit.workpaper import write_results_json, write_workpaper
+
     result.log_path = log_path
-    _print_extractions(result)
+    result.workpaper_path = write_workpaper(result, cfg.output.folder)
+    write_results_json(result, cfg.output.folder)
+    if verbose:
+        _print_extractions(result)
     _print_summary(result)
     console.print(f"Log: {log_path}")
+    # Power Automate reads this exact last line, so print it plainly (no wrapping or colour).
+    print(f"WORKPAPER: {result.workpaper_path.resolve()}")
     raise typer.Exit(2 if result.failed else 0)
+
+
+@app.command("init-config")
+def init_config(
+    path: Path = typer.Argument(..., help="Where to write the new run file, e.g. runs/my_client.toml"),
+) -> None:
+    """Write a commented run-settings template to fill in for a new engagement."""
+    from invoice_audit.config import RUN_TEMPLATE
+
+    if path.exists():
+        console.print(f"[red]{path} already exists. Choose another name or delete it first.[/red]")
+        raise typer.Exit(1)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(RUN_TEMPLATE, encoding="utf-8")
+    console.print(f"Wrote {path}. Fill in the [engagement] and [inputs] sections, then run:")
+    console.print(f"  uv run audit run --config {path.as_posix()} --dry-run")
 
 
 @cache_app.command("stats")

@@ -6,6 +6,7 @@ from io import BytesIO
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 
+from invoice_audit.synthetic.stable_zip import stable_zip
 from invoice_audit.synthetic.view import InvoiceView
 
 FIXED_TIME = datetime(2026, 1, 1, 9, 0, 0)
@@ -60,4 +61,4 @@ def render_invoice_xlsx(view: InvoiceView) -> bytes:
 
     out = BytesIO()
     wb.save(out)
-    return out.getvalue()
+    return stable_zip(out.getvalue())
